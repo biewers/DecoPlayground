@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CameraApp</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="camera_already_open">Camera already open</string>
+    <string name="no_cameras_found">No cameras found</string>
+    <string name="no_back_facing_camera">No back facing camera</string>
+    <string name="failed_to_open_camera">Failed to open camera</string>
+    <string name="error_closing_camera">Error occurred closing camera</string>
+    <string name="camera_is_closed">Camera is closed</string>
+    <string name="failed_to_determine_output_size">Failed to determine output size</string>
+    <string name="failed_to_create_camera_capture_session">Failed to create camera capture session</string>
+</resources>

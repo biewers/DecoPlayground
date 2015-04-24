@@ -13,8 +13,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.util.Size;
 
-import com.test.cameraapp.R;
-
+import edu.wisc.physics.wipac.deco.app.R;
 import edu.wisc.physics.wipac.deco.camera.CameraCaptureSessionState;
 import edu.wisc.physics.wipac.deco.camera.CameraDeviceException;
 import edu.wisc.physics.wipac.deco.camera.CameraDeviceManager;

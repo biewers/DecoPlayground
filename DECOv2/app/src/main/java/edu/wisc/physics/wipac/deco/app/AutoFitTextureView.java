@@ -1,4 +1,4 @@
-package com.test.cameraapp;
+package edu.wisc.physics.wipac.deco.app;
 
 import android.content.Context;
 import android.util.AttributeSet;

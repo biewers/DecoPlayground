@@ -1,10 +1,8 @@
-package com.test.cameraapp;
+package edu.wisc.physics.wipac.deco.app;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Configuration;
 import android.graphics.ImageFormat;
-import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
@@ -12,11 +10,11 @@ import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraMetadata;
 import android.hardware.camera2.CaptureRequest;
-import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.Image;
 import android.media.ImageReader;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Log;
@@ -24,34 +22,38 @@ import android.util.Size;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Surface;
-import android.view.TextureView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.ByteBuffer;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import static android.hardware.camera2.CameraCharacteristics.SENSOR_MAX_ANALOG_SENSITIVITY;
+import static android.hardware.camera2.CameraMetadata.CONTROL_AE_MODE_OFF;
 
 
 public class MainActivity extends Activity
 {
-    private final String TAG = "MainActivity";
+    private static final String TAG = "MainActivity";
+    private static final SimpleDateFormat IMAGE_FILE_FORMAT = new SimpleDateFormat("yyyyMMdd_HHmmss.SSS");
 
     private Handler mMainHandler;
 
-    private AutoFitTextureView mTextureView;
+    private long mNumImages = 0;
+    private long mSizeImages = 0;
 
-    /*
-    // Preview related fields
-    private HandlerThread mPreviewHandlerThread;
-    private Handler mPreviewHandler;
-    private Surface mPreviewSurface;
-    private Size mPreviewSize;
-    private CaptureRequest mPreviewCaptureRequest;
-    */
+    private TextView mTextNumImages;
+    private TextView mTextSizeImages;
 
     // Still capture related fields
     private static final int READER_MAX_IMAGES = 10;
-    private static final int STILL_CAPTURE_PAUSE = 10000; // milliseconds
+    private static final int STILL_CAPTURE_PAUSE = 100; // milliseconds
     private ImageReader mStillReader;
     private Size mStillSize = new Size(640, 480); // default
     private CaptureRequest mStillCaptureRequest;
@@ -60,7 +62,6 @@ public class MainActivity extends Activity
     private CameraCaptureSession mCameraCaptureSession;
 
     private AtomicBoolean mCameraReady = new AtomicBoolean();
-    private AtomicBoolean mPreviewTextureReady = new AtomicBoolean();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -70,40 +71,25 @@ public class MainActivity extends Activity
 
         mMainHandler = null; //new Handler();
 
+        Thread.currentThread().setUncaughtExceptionHandler(
+            new Thread.UncaughtExceptionHandler()
+            {
+                @Override
+                public void uncaughtException(Thread thread, Throwable e)
+                {
+                    Log.e(TAG, "FATAL ERROR: Uncaught exception!", e);
+                    DecoApp.log(TAG, "FATAL ERROR: Uncaught exception!", e);
+                }
+            }
+        );
+
         initializeControls();
     }
 
     private void initializeControls()
     {
-        mTextureView = (AutoFitTextureView) findViewById(R.id.textureView);
-        mTextureView.setSurfaceTextureListener(
-            new TextureView.SurfaceTextureListener()
-            {
-                @Override
-                public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height)
-                {
-                    onPreviewTextureAvailable();
-                }
-
-                @Override
-                public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height)
-                {
-                    Log.d(TAG, "Preview texture size changed");
-                    onPreviewTextureAvailable();
-                }
-
-                @Override
-                public boolean onSurfaceTextureDestroyed(SurfaceTexture surface)
-                {
-                    Log.d(TAG, "Preview texture destroyed");
-                    mPreviewTextureReady.set(false);
-                    return true;
-                }
-
-                @Override
-                public void onSurfaceTextureUpdated(SurfaceTexture surface) {}
-            }
-        );
+        mTextNumImages = (TextView) findViewById(R.id.textNumImages);
+        mTextSizeImages = (TextView) findViewById(R.id.textSizeImages);
     }
 
     private CameraDevice.StateCallback mCameraStateCallback =
@@ -188,10 +174,7 @@ public class MainActivity extends Activity
         if (determineCameraOutputSize())
         {
             mCameraReady.set(true);
-            if (mPreviewTextureReady.get())
-            {
-                startPreview();
-            }
+            createCaptureSession();
         }
     }
 
@@ -212,30 +195,6 @@ public class MainActivity extends Activity
             {
                 Size[] outputSizes = null;
 
-                /*
-                // Preview output size
-                outputSizes = scalerStreamConfigurationMap.getOutputSizes(SurfaceTexture.class);
-                if (outputSizes == null)
-                {
-                    makeToast("Unable to determine camera output size");
-                    Log.e(TAG, "Unable to determine camera output size - output sizes null");
-                    return false;
-                }
-
-                mPreviewSize = outputSizes[0];
-                Log.d(TAG, "Preview output size " + mPreviewSize);
-
-                int orientation = getResources().getConfiguration().orientation;
-                if (orientation == Configuration.ORIENTATION_LANDSCAPE)
-                {
-                    mTextureView.setAspectRatio(mPreviewSize.getWidth(), mPreviewSize.getHeight());
-                }
-                else
-                {
-                    mTextureView.setAspectRatio(mPreviewSize.getHeight(), mPreviewSize.getWidth());
-                }
-                */
-
                 // Still capture output size
                 outputSizes = scalerStreamConfigurationMap.getOutputSizes(ImageFormat.JPEG);
                 if (outputSizes != null && outputSizes.length > 0)
@@ -255,26 +214,8 @@ public class MainActivity extends Activity
         return true;
     }
 
-    private void onPreviewTextureAvailable()
-    {
-        Log.d(TAG, "onPreviewTextureAvailable - thread " + Thread.currentThread().getName() + "(" + Thread.currentThread().getId() + ")");
-
-        mPreviewTextureReady.set(true);
-        if (mCameraReady.get())
-        {
-            startPreview();
-        }
-    }
-
-    private void startPreview()
-    {
-        // TODO Change this
-        createCaptureSession();
-    }
-
     /**
-     * This method is called once the surface texture of the preview text view is available or changes.
-     * Initialize the preview surface and attempt to create a capture session. Once the capture session
+     * Attempt to create a capture session. Once the capture session
      * is successfully created, the {@link #onCameraCaptureSessionConfigured(android.hardware.camera2.CameraCaptureSession)}
      * method is invoked.
      */
@@ -325,26 +266,15 @@ public class MainActivity extends Activity
         {
             CaptureRequest.Builder captureRequestBuilder = null;
 
-            /*
-            // Setup preview capture as a repeating request
-            captureRequestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
-            captureRequestBuilder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_AUTO);
-            captureRequestBuilder.addTarget(mPreviewSurface);
-
-            mPreviewCaptureRequest = captureRequestBuilder.build();
+            // Setup still capture
+            captureRequestBuilder = getStillCaptureRequestBuilder();
+            captureRequestBuilder.addTarget(mStillReader.getSurface());
+            mStillCaptureRequest = captureRequestBuilder.build();
 
             mCameraCaptureSession.setRepeatingRequest(
-                    mPreviewCaptureRequest,
+                    mStillCaptureRequest,
                     null,
-                    getPreviewHandler());
-            */
-
-            // Setup still capture
-            captureRequestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
-            captureRequestBuilder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_AUTO);
-            captureRequestBuilder.addTarget(mStillReader.getSurface());
-
-            mStillCaptureRequest = captureRequestBuilder.build();
+                    null);
 
             ImageReader.OnImageAvailableListener readerListener =
                     new ImageReader.OnImageAvailableListener()
@@ -355,7 +285,11 @@ public class MainActivity extends Activity
                             Log.d(TAG, "Still capture image available");
                             Image image = reader.acquireLatestImage();
 
-                            // TODO Do something with the image
+                            // TODO Save for now
+                            ByteBuffer buffer = image.getPlanes()[0].getBuffer();
+                            byte[] bytes = new byte[buffer.capacity()];
+                            buffer.get(bytes);
+                            saveImage(bytes);
 
                             // You need to close the image or you will exceed READER_MAX_IMAGES
                             image.close();
@@ -368,6 +302,7 @@ public class MainActivity extends Activity
             Handler handler = new Handler(handlerThread.getLooper());
             mStillReader.setOnImageAvailableListener(readerListener, handler);
 
+            /*
             final CameraCaptureSession.CaptureCallback stillCaptureCallback =
                     new CameraCaptureSession.CaptureCallback()
                     {
@@ -378,8 +313,8 @@ public class MainActivity extends Activity
                         }
                     };
 
-            // Now, setup a simple thread to grab an image every second
-            new Thread(
+            // Now, setup a simple thread to grab an image occasionally
+            new AppThread(
                     new Runnable()
                     {
                         @Override
@@ -415,6 +350,7 @@ public class MainActivity extends Activity
                             }
                         }
                     }).start();
+            */
         }
         catch (Exception e)
         {
@@ -423,28 +359,70 @@ public class MainActivity extends Activity
         }
     }
 
-    private Handler getPreviewHandler()
+    private CaptureRequest.Builder getStillCaptureRequestBuilder() throws CameraAccessException
     {
-        return null;
+        CameraManager manager = (CameraManager) getSystemService(CAMERA_SERVICE);
+        CameraCharacteristics characteristics = manager.getCameraCharacteristics(mCameraDevice.getId());
 
-        /*
-        if (mPreviewHandlerThread == null)
+        Long exposure = null;
+        int supportedHardwareLevel = characteristics.get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL);
+        if (supportedHardwareLevel == CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_FULL)
         {
-            mPreviewHandlerThread = new HandlerThread("CameraPreview");
+            // gets the upper exposure time supported by the camera object
+            exposure = characteristics.get(CameraCharacteristics.SENSOR_INFO_EXPOSURE_TIME_RANGE).getUpper();
+            Log.i(TAG, "Camera exposure upper bound = " + exposure);
+        }
+        else
+        {
+            Log.i(TAG, "Supported hardware level (" + supportedHardwareLevel + ") does not support exposure time range characteristic");
         }
 
-        if (!mPreviewHandlerThread.isAlive())
+        CaptureRequest.Builder captureRequestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
+        captureRequestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CONTROL_AE_MODE_OFF);
+        if (exposure != null)
         {
-            mPreviewHandlerThread.start();
+            captureRequestBuilder.set(CaptureRequest.SENSOR_EXPOSURE_TIME, exposure);
         }
+        captureRequestBuilder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_AUTO);
+        captureRequestBuilder.set(CaptureRequest.NOISE_REDUCTION_MODE, CaptureRequest.NOISE_REDUCTION_MODE_OFF);
+        captureRequestBuilder.set(CaptureRequest.BLACK_LEVEL_LOCK, false);// without it unlocked it might cause issues
+        captureRequestBuilder.set(CaptureRequest.SENSOR_SENSITIVITY, characteristics.get(SENSOR_MAX_ANALOG_SENSITIVITY));
 
-        if (mPreviewHandler == null)
+        return captureRequestBuilder;
+    }
+
+    private void saveImage(final byte[] imageBytes)
+    {
+        Log.d(TAG, "Saving image");
+        try
         {
-            mPreviewHandler = new Handler(mPreviewHandlerThread.getLooper());
-        }
+            File dir = new File(Environment.getExternalStorageDirectory(), getResources().getString(R.string.app_name));
+            dir.mkdirs();
 
-        return mPreviewHandler;
-        */
+            String imageName = IMAGE_FILE_FORMAT.format(new Date()) + ".jpg";
+
+            File file = new File(dir, imageName);
+            Log.d(TAG, "Image " + file.getAbsolutePath());
+
+            FileOutputStream output = new FileOutputStream(file);
+            output.write(imageBytes);
+            output.close();
+
+            MainActivity.this.runOnUiThread(
+                new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        mTextNumImages.setText(String.valueOf(++mNumImages));
+                        mTextSizeImages.setText(String.valueOf((mSizeImages += imageBytes.length) / 1024) + "kb");
+                    }
+                });
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, "Failed to save image", e);
+        }
     }
 
     /**
@@ -457,19 +435,9 @@ public class MainActivity extends Activity
     {
         Log.d(TAG, "getCameraSurfaces");
 
-        /*
-        // Configure the width and height of the surface texture
-        SurfaceTexture surfaceTexture = mTextureView.getSurfaceTexture();
-        surfaceTexture.setDefaultBufferSize(mPreviewSize.getWidth(), mPreviewSize.getHeight());
-
-        // Create preview surface
-        mPreviewSurface = new Surface(surfaceTexture);
-        */
-
         // Create still reader
         mStillReader = ImageReader.newInstance(mStillSize.getWidth(), mStillSize.getHeight(), ImageFormat.JPEG, READER_MAX_IMAGES);
 
-//      return Arrays.asList(new Surface[] { mPreviewSurface, mStillReader.getSurface() });
         return Arrays.asList(new Surface[] { mStillReader.getSurface() });
     }
 
@@ -505,19 +473,6 @@ public class MainActivity extends Activity
     {
         super.onPause();
         Log.d(TAG, "onPause");
-
-//        closeCameraDevice();
-        /*
-        try
-        {
-            Log.d(TAG, "Stopping preview capture");
-            mCameraCaptureSession.stopRepeating();
-        }
-        catch (CameraAccessException e)
-        {
-            Log.e(TAG, "Failed to stop preview capture", e);
-        }
-        */
     }
 
     @Override
@@ -529,23 +484,6 @@ public class MainActivity extends Activity
         if (!mCameraReady.get())
         {
             openCameraDevice();
-        }
-        else
-        {
-            /*
-            try
-            {
-                Log.d(TAG, "Starting preview capture");
-                mCameraCaptureSession.setRepeatingRequest(
-                        mPreviewCaptureRequest,
-                        null,
-                        getPreviewHandler());
-            }
-            catch (CameraAccessException e)
-            {
-                Log.e(TAG, "Failed to start preview capture", e);
-            }
-            */
         }
     }
 

@@ -11,4 +11,5 @@
     <string name="camera_is_closed">Camera is closed</string>
     <string name="failed_to_determine_output_size">Failed to determine output size</string>
     <string name="failed_to_create_camera_capture_session">Failed to create camera capture session</string>
+    <string name="not_supported">Not supported</string>
 </resources>

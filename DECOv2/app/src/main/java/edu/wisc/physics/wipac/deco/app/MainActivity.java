@@ -17,7 +17,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.util.Log;
 import android.util.Size;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -50,6 +49,7 @@ public class MainActivity extends Activity
 
     private TextView mTextNumImages;
     private TextView mTextSizeImages;
+    private TextView mTextExposure;
 
     // Still capture related fields
     private static final int READER_MAX_IMAGES = 10;
@@ -77,8 +77,7 @@ public class MainActivity extends Activity
                 @Override
                 public void uncaughtException(Thread thread, Throwable e)
                 {
-                    Log.e(TAG, "FATAL ERROR: Uncaught exception!", e);
-                    DecoApp.log(TAG, "FATAL ERROR: Uncaught exception!", e);
+                    DecoApp.e(TAG, "FATAL ERROR: Uncaught exception!", e);
                 }
             }
         );
@@ -90,6 +89,7 @@ public class MainActivity extends Activity
     {
         mTextNumImages = (TextView) findViewById(R.id.textNumImages);
         mTextSizeImages = (TextView) findViewById(R.id.textSizeImages);
+        mTextExposure = (TextView) findViewById(R.id.textExposure);
     }
 
     private CameraDevice.StateCallback mCameraStateCallback =
@@ -112,7 +112,7 @@ public class MainActivity extends Activity
             {
                 closeCameraDevice();
                 makeToast("Camera device error " + error);
-                Log.e(TAG, "Camera device error " + error);
+                DecoApp.e(TAG, "Camera device error " + error);
             }
         };
 
@@ -124,11 +124,11 @@ public class MainActivity extends Activity
     {
         if (mCameraDevice != null)
         {
-            Log.d(TAG, "Camera already opened");
+            DecoApp.d(TAG, "Camera already opened");
             return;
         }
 
-        Log.d(TAG, "Opening camera");
+        DecoApp.d(TAG, "Opening camera");
 
         try
         {
@@ -138,7 +138,7 @@ public class MainActivity extends Activity
             if (cameraIds == null)
             {
                 makeToast("No cameras found");
-                Log.w(TAG, "No cameras found");
+                DecoApp.w(TAG, "No cameras found");
                 return;
             }
 
@@ -157,7 +157,7 @@ public class MainActivity extends Activity
         catch (Exception e)
         {
             makeToast("Failed to open camera");
-            Log.e(TAG, "Failed to open camera", e);
+            DecoApp.e(TAG, "Failed to open camera", e);
         }
     }
 
@@ -168,12 +168,13 @@ public class MainActivity extends Activity
      */
     private void onCameraDeviceOpen(CameraDevice cameraDevice)
     {
-        Log.d(TAG, "onCameraDeviceOpen - thread " + Thread.currentThread().getName() + "(" + Thread.currentThread().getId() + ")");
+        DecoApp.d(TAG, "onCameraDeviceOpen - thread " + Thread.currentThread().getName() + "(" + Thread.currentThread().getId() + ")");
         mCameraDevice = cameraDevice;
 
         if (determineCameraOutputSize())
         {
             mCameraReady.set(true);
+            DecoApp.d(TAG, "onCameraDeviceOpen camera ready " + mCameraReady.get());
             createCaptureSession();
         }
     }
@@ -188,7 +189,7 @@ public class MainActivity extends Activity
             if (scalerStreamConfigurationMap == null)
             {
                 makeToast("Unable to determine camera output size");
-                Log.e(TAG, "Unable to determine camera output size - CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP is null");
+                DecoApp.e(TAG, "Unable to determine camera output size - CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP is null");
                 return false;
             }
             else
@@ -201,13 +202,13 @@ public class MainActivity extends Activity
                 {
                     mStillSize = outputSizes[0];
                 }
-                Log.d(TAG, "Still capture output size " + mStillSize);
+                DecoApp.d(TAG, "Still capture output size " + mStillSize);
             }
         }
         catch (Exception e)
         {
             makeToast("Failed to determine camera output size");
-            Log.e(TAG, "Failed to determine camera output size", e);
+            DecoApp.e(TAG, "Failed to determine camera output size", e);
             return false;
         }
 
@@ -238,7 +239,7 @@ public class MainActivity extends Activity
                     public void onConfigureFailed(CameraCaptureSession session)
                     {
                         makeToast("Failed to configure camera capture session");
-                        Log.e(TAG, "Failed to configure camera capture session");
+                        DecoApp.e(TAG, "Failed to configure camera capture session");
                     }
                 },
                 mMainHandler); // The StateCallback will be invoked on the main handler's thread
@@ -246,7 +247,7 @@ public class MainActivity extends Activity
         catch (Exception e)
         {
             makeToast("Unable to create camera capture session");
-            Log.e(TAG, "Unable to create camera capture session", e);
+            DecoApp.e(TAG, "Unable to create camera capture session", e);
         }
     }
 
@@ -258,7 +259,7 @@ public class MainActivity extends Activity
      */
     private void onCameraCaptureSessionConfigured(CameraCaptureSession session)
     {
-        Log.d(TAG, "onCameraCaptureSessionConfigured");
+        DecoApp.d(TAG, "onCameraCaptureSessionConfigured");
 
         mCameraCaptureSession = session;
 
@@ -282,7 +283,7 @@ public class MainActivity extends Activity
                         @Override
                         public void onImageAvailable(ImageReader reader)
                         {
-                            Log.d(TAG, "Still capture image available");
+                            DecoApp.d(TAG, "Still capture image available");
                             Image image = reader.acquireLatestImage();
 
                             // TODO Save for now
@@ -293,7 +294,7 @@ public class MainActivity extends Activity
 
                             // You need to close the image or you will exceed READER_MAX_IMAGES
                             image.close();
-                            Log.d(TAG, "Acquired image");
+                            DecoApp.d(TAG, "Acquired image");
                         }
                     };
 
@@ -309,7 +310,7 @@ public class MainActivity extends Activity
                         @Override
                         public void onCaptureCompleted(CameraCaptureSession session, CaptureRequest request, TotalCaptureResult result)
                         {
-                            Log.d(TAG, "Image capture completed");
+                            DecoApp.d(TAG, "Image capture completed");
                         }
                     };
 
@@ -329,14 +330,14 @@ public class MainActivity extends Activity
                                 {
                                     if (mCameraReady.get())
                                     {
-                                        Log.d(TAG, "Initiating still capture");
+                                        DecoApp.d(TAG, "Initiating still capture");
                                         int captureId = mCameraCaptureSession.capture(mStillCaptureRequest, stillCaptureCallback, handler);
-                                        Log.d(TAG, "Capture ID " + captureId);
+                                        DecoApp.d(TAG, "Capture ID " + captureId);
                                     }
                                 }
                                 catch (Exception e)
                                 {
-                                    Log.e(TAG, "Failed to capture image", e);
+                                    DecoApp.e(TAG, "Failed to capture image", e);
                                     break;
                                 }
 
@@ -355,7 +356,7 @@ public class MainActivity extends Activity
         catch (Exception e)
         {
             makeToast("Unable to create camera capture request");
-            Log.e(TAG, "Unable to create camera capture request", e);
+            DecoApp.e(TAG, "Unable to create camera capture request", e);
         }
     }
 
@@ -370,11 +371,32 @@ public class MainActivity extends Activity
         {
             // gets the upper exposure time supported by the camera object
             exposure = characteristics.get(CameraCharacteristics.SENSOR_INFO_EXPOSURE_TIME_RANGE).getUpper();
-            Log.i(TAG, "Camera exposure upper bound = " + exposure);
+            DecoApp.i(TAG, "Camera exposure upper bound = " + exposure);
+            final Long finalExposure = exposure;
+            MainActivity.this.runOnUiThread(
+                new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        mTextExposure.setText(String.valueOf(finalExposure));
+                    }
+                }
+            );
         }
         else
         {
-            Log.i(TAG, "Supported hardware level (" + supportedHardwareLevel + ") does not support exposure time range characteristic");
+            DecoApp.i(TAG, "Supported hardware level (" + supportedHardwareLevel + ") does not support exposure time range characteristic");
+            MainActivity.this.runOnUiThread(
+                new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        mTextExposure.setText(getString(R.string.not_supported));
+                    }
+                }
+            );
         }
 
         CaptureRequest.Builder captureRequestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
@@ -393,7 +415,7 @@ public class MainActivity extends Activity
 
     private void saveImage(final byte[] imageBytes)
     {
-        Log.d(TAG, "Saving image");
+        DecoApp.d(TAG, "Saving image");
         try
         {
             File dir = new File(Environment.getExternalStorageDirectory(), getResources().getString(R.string.app_name));
@@ -402,7 +424,7 @@ public class MainActivity extends Activity
             String imageName = IMAGE_FILE_FORMAT.format(new Date()) + ".jpg";
 
             File file = new File(dir, imageName);
-            Log.d(TAG, "Image " + file.getAbsolutePath());
+            DecoApp.d(TAG, "Image " + file.getAbsolutePath());
 
             FileOutputStream output = new FileOutputStream(file);
             output.write(imageBytes);
@@ -421,7 +443,7 @@ public class MainActivity extends Activity
         }
         catch (Exception e)
         {
-            Log.e(TAG, "Failed to save image", e);
+            DecoApp.e(TAG, "Failed to save image", e);
         }
     }
 
@@ -433,7 +455,7 @@ public class MainActivity extends Activity
      */
     private List<Surface> getCameraSurfaces()
     {
-        Log.d(TAG, "getCameraSurfaces");
+        DecoApp.d(TAG, "getCameraSurfaces");
 
         // Create still reader
         mStillReader = ImageReader.newInstance(mStillSize.getWidth(), mStillSize.getHeight(), ImageFormat.JPEG, READER_MAX_IMAGES);
@@ -443,26 +465,26 @@ public class MainActivity extends Activity
 
     private void onCameraDeviceDisconnected()
     {
-        Log.d(TAG, "onCameraDeviceDisconnected");
+        DecoApp.d(TAG, "onCameraDeviceDisconnected");
         closeCameraDevice();
     }
 
     private void closeCameraDevice()
     {
-        Log.d(TAG, "closeCameraDevice");
+        DecoApp.d(TAG, "closeCameraDevice");
 
         mCameraReady.set(false);
 
         if (mCameraCaptureSession != null)
         {
-            Log.d(TAG, "Closing camera capture session");
+            DecoApp.d(TAG, "Closing camera capture session");
             mCameraCaptureSession.close();
             mCameraCaptureSession = null;
         }
 
         if (mCameraDevice != null)
         {
-            Log.d(TAG, "Closing camera device");
+            DecoApp.d(TAG, "Closing camera device");
             mCameraDevice.close();
             mCameraDevice = null;
         }
@@ -472,14 +494,14 @@ public class MainActivity extends Activity
     protected void onPause()
     {
         super.onPause();
-        Log.d(TAG, "onPause");
+        DecoApp.d(TAG, "onPause");
     }
 
     @Override
     protected void onResume()
     {
         super.onResume();
-        Log.d(TAG, "onResume");
+        DecoApp.d(TAG, "onResume camera ready " + mCameraReady.get());
 
         if (!mCameraReady.get())
         {

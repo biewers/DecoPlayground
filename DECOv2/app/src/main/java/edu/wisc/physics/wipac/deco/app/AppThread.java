@@ -18,8 +18,7 @@ public class AppThread extends Thread
                 @Override
                 public void uncaughtException(Thread thread, Throwable e)
                 {
-                    Log.e(TAG, "FATAL ERROR: Uncaught exception!", e);
-                    DecoApp.log(TAG, "FATAL ERROR: Uncaught exception!", e);
+                    DecoApp.e(TAG, "FATAL ERROR: Uncaught exception!", e);
                 }
             }
         );

@@ -1,0 +1,1011 @@
+2015-04-30 10:00:26.568 I/DecoApp: Application started
+2015-04-30 10:00:26.653 D/DecoCameraService: isRunning false
+2015-04-30 10:00:36.812 I/DecoApp: Application started
+2015-04-30 10:00:36.813 D/DecoCameraService: onCreate
+2015-04-30 10:00:36.816 D/DecoCameraService: onStartCommand intent Intent { cmp=edu.wisc.physics.wipac.deco.service/.DecoCameraService } flags 0 startId 1
+2015-04-30 10:00:36.818 I/Camera: Opening camera
+2015-04-30 10:00:37.129 D/Camera: onCameraDeviceOpen - thread Deco Camera Service Thread(6127)
+2015-04-30 10:00:37.137 D/Camera: Still capture output size 5312x2988
+2015-04-30 10:00:37.137 D/Camera: onCameraDeviceOpen camera ready true
+2015-04-30 10:00:37.138 D/Camera: getCameraSurfaces
+2015-04-30 10:00:37.158 D/Camera: onCameraCaptureSessionConfigured
+2015-04-30 10:00:37.170 I/Camera: Supported hardware level (2) does not support exposure time range characteristic
+2015-04-30 10:00:37.184 D/Camera: Initiating still capture
+2015-04-30 10:00:37.188 D/Camera: Capture ID 0
+2015-04-30 10:00:38.180 D/Camera: Still capture image available
+2015-04-30 10:00:38.181 D/Camera: Saving image
+2015-04-30 10:00:38.183 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_10/20150430_100038.182.jpg
+2015-04-30 10:00:38.189 D/Camera: Initiating still capture
+2015-04-30 10:00:38.190 D/Camera: Capture ID 1
+2015-04-30 10:00:38.191 D/Camera: Acquired image
+2015-04-30 10:00:38.204 D/Camera: Image capture completed
+2015-04-30 10:00:39.191 D/Camera: Initiating still capture
+2015-04-30 10:00:39.192 D/Camera: Capture ID 2
+2015-04-30 10:00:39.260 D/Camera: Still capture image available
+2015-04-30 10:00:39.263 D/Camera: Saving image
+2015-04-30 10:00:39.266 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_10/20150430_100039.264.jpg
+2015-04-30 10:00:39.271 D/Camera: Acquired image
+2015-04-30 10:00:39.276 D/Camera: Image capture completed
+2015-04-30 10:00:40.193 D/Camera: Initiating still capture
+2015-04-30 10:00:40.195 D/Camera: Capture ID 3
+2015-04-30 10:00:40.417 D/Camera: Still capture image available
+2015-04-30 10:00:40.419 D/Camera: Saving image
+2015-04-30 10:00:40.420 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_10/20150430_100040.419.jpg
+2015-04-30 10:00:40.423 D/Camera: Acquired image
+2015-04-30 10:00:40.430 D/Camera: Image capture completed
+2015-04-30 10:00:41.203 D/Camera: Initiating still capture
+2015-04-30 10:00:41.210 D/Camera: Capture ID 4
+2015-04-30 10:00:41.583 D/Camera: Still capture image available
+2015-04-30 10:00:41.593 D/Camera: Saving image
+2015-04-30 10:00:41.595 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_10/20150430_100041.593.jpg
+2015-04-30 10:00:41.598 D/Camera: Acquired image
+2015-04-30 10:00:41.599 D/Camera: Image capture completed
+2015-04-30 10:00:42.212 D/Camera: Initiating still capture
+2015-04-30 10:00:42.227 D/Camera: Capture ID 5
+2015-04-30 10:00:42.804 D/Camera: Still capture image available
+2015-04-30 10:00:42.806 D/Camera: Saving image
+2015-04-30 10:00:42.808 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_10/20150430_100042.807.jpg
+2015-04-30 10:00:42.811 D/Camera: Acquired image
+2015-04-30 10:00:42.822 D/Camera: Image capture completed
+2015-04-30 10:00:43.234 D/Camera: Initiating still capture
+2015-04-30 10:00:43.239 D/Camera: Capture ID 6
+2015-04-30 10:00:44.137 D/Camera: Still capture image available
+2015-04-30 10:00:44.139 D/Camera: Saving image
+2015-04-30 10:00:44.140 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_10/20150430_100044.139.jpg
+2015-04-30 10:00:44.143 D/Camera: Acquired image
+2015-04-30 10:00:44.144 D/Camera: Image capture completed
+2015-04-30 10:00:44.244 D/Camera: Initiating still capture
+2015-04-30 10:00:44.245 D/Camera: Capture ID 7
+2015-04-30 10:00:45.246 D/Camera: Initiating still capture
+2015-04-30 10:00:45.250 D/Camera: Capture ID 8
+2015-04-30 10:00:45.414 D/Camera: Still capture image available
+2015-04-30 10:00:45.416 D/Camera: Saving image
+2015-04-30 10:00:45.418 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_10/20150430_100045.417.jpg
+2015-04-30 10:00:45.424 D/Camera: Acquired image
+2015-04-30 10:00:45.448 D/Camera: Image capture completed
+2015-04-30 10:00:46.253 D/Camera: Initiating still capture
+2015-04-30 10:00:46.266 D/Camera: Capture ID 9
+2015-04-30 10:00:46.821 D/Camera: Still capture image available
+2015-04-30 10:00:46.824 D/Camera: Saving image
+2015-04-30 10:00:46.826 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_10/20150430_100046.824.jpg
+2015-04-30 10:00:46.833 D/Camera: Acquired image
+2015-04-30 10:00:46.841 D/Camera: Image capture completed
+2015-04-30 10:00:47.277 D/Camera: Initiating still capture
+2015-04-30 10:00:47.282 D/Camera: Capture ID 10
+2015-04-30 10:00:48.134 D/Camera: Still capture image available
+2015-04-30 10:00:48.137 D/Camera: Saving image
+2015-04-30 10:00:48.138 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_10/20150430_100048.137.jpg
+2015-04-30 10:00:48.142 D/Camera: Acquired image
+2015-04-30 10:00:48.145 D/Camera: Image capture completed
+2015-04-30 10:00:48.293 D/Camera: Initiating still capture
+2015-04-30 10:00:48.294 D/Camera: Capture ID 11
+2015-04-30 10:00:49.295 D/Camera: Initiating still capture
+2015-04-30 10:00:49.300 D/Camera: Capture ID 12
+2015-04-30 10:00:49.489 D/Camera: Still capture image available
+2015-04-30 10:00:49.490 D/Camera: Saving image
+2015-04-30 10:00:49.492 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_10/20150430_100049.491.jpg
+2015-04-30 10:00:49.495 D/Camera: Acquired image
+2015-04-30 10:00:49.511 D/Camera: Image capture completed
+2015-04-30 10:00:50.302 D/Camera: Initiating still capture
+2015-04-30 10:00:50.307 D/Camera: Capture ID 13
+2015-04-30 10:00:50.863 D/Camera: Still capture image available
+2015-04-30 10:00:50.867 D/Camera: Saving image
+2015-04-30 10:00:50.870 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_10/20150430_100050.869.jpg
+2015-04-30 10:00:50.875 D/Camera: Acquired image
+2015-04-30 10:00:50.878 D/Camera: Image capture completed
+2015-04-30 10:00:51.317 D/Camera: Initiating still capture
+2015-04-30 10:00:51.320 D/Camera: Capture ID 14
+2015-04-30 10:00:52.240 D/Camera: Still capture image available
+2015-04-30 10:00:52.242 D/Camera: Saving image
+2015-04-30 10:00:52.244 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_10/20150430_100052.243.jpg
+2015-04-30 10:00:52.248 D/Camera: Acquired image
+2015-04-30 10:00:52.255 D/Camera: Image capture completed
+2015-04-30 10:00:52.321 D/Camera: Initiating still capture
+2015-04-30 10:00:52.322 D/Camera: Capture ID 15
+2015-04-30 10:00:53.323 D/Camera: Initiating still capture
+2015-04-30 10:00:53.324 D/Camera: Capture ID 16
+2015-04-30 10:00:53.636 D/Camera: Still capture image available
+2015-04-30 10:00:53.638 D/Camera: Saving image
+2015-04-30 10:00:53.639 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_10/20150430_100053.638.jpg
+2015-04-30 10:00:53.642 D/Camera: Acquired image
+2015-04-30 10:00:53.647 D/Camera: Image capture completed
+2015-04-30 10:00:54.325 D/Camera: Initiating still capture
+2015-04-30 10:00:54.326 D/Camera: Capture ID 17
+2015-04-30 10:00:54.907 D/Camera: Still capture image available
+2015-04-30 10:00:54.912 D/Camera: Saving image
+2015-04-30 10:00:54.914 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_10/20150430_100054.913.jpg
+2015-04-30 10:00:54.920 D/Camera: Acquired image
+2015-04-30 10:00:54.924 D/Camera: Image capture completed
+2015-04-30 10:00:55.327 D/Camera: Initiating still capture
+2015-04-30 10:00:55.331 D/Camera: Capture ID 18
+2015-04-30 13:49:47.420 I/DecoApp: Application started
+2015-04-30 13:49:47.580 D/DecoCameraService: isRunning false
+2015-04-30 13:50:04.717 I/DecoApp: Application started
+2015-04-30 13:50:04.718 D/DecoCameraService: onCreate
+2015-04-30 13:50:04.727 D/DecoCameraService: onStartCommand intent Intent { cmp=edu.wisc.physics.wipac.deco.service/.DecoCameraService } flags 0 startId 1
+2015-04-30 13:50:04.743 I/Camera: Opening camera
+2015-04-30 13:50:05.144 D/Camera: onCameraDeviceOpen - thread Deco Camera Service Thread(6867)
+2015-04-30 13:50:05.172 D/Camera: Still capture output size 5312x2988
+2015-04-30 13:50:05.179 D/Camera: onCameraDeviceOpen camera ready true
+2015-04-30 13:50:05.179 D/Camera: getCameraSurfaces
+2015-04-30 13:50:05.254 D/Camera: onCameraCaptureSessionConfigured
+2015-04-30 13:50:05.260 I/Camera: Supported hardware level (2) does not support exposure time range characteristic
+2015-04-30 13:50:05.284 D/Camera: Initiating still capture
+2015-04-30 13:50:05.285 D/Camera: Capture ID 0
+2015-04-30 13:50:06.292 D/Camera: Initiating still capture
+2015-04-30 13:50:06.293 D/Camera: Capture ID 1
+2015-04-30 13:50:06.480 D/Camera: Still capture image available
+2015-04-30 13:50:06.482 D/Camera: Saving image
+2015-04-30 13:50:06.486 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135006.483.jpg
+2015-04-30 13:50:06.489 D/Camera: Acquired image
+2015-04-30 13:50:06.508 D/Camera: Image capture completed
+2015-04-30 13:50:07.294 D/Camera: Initiating still capture
+2015-04-30 13:50:07.295 D/Camera: Capture ID 2
+2015-04-30 13:50:07.604 D/Camera: Still capture image available
+2015-04-30 13:50:07.605 D/Camera: Saving image
+2015-04-30 13:50:07.606 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135007.606.jpg
+2015-04-30 13:50:07.610 D/Camera: Acquired image
+2015-04-30 13:50:07.615 D/Camera: Image capture completed
+2015-04-30 13:50:08.295 D/Camera: Initiating still capture
+2015-04-30 13:50:08.296 D/Camera: Capture ID 3
+2015-04-30 13:50:08.743 D/Camera: Still capture image available
+2015-04-30 13:50:08.744 D/Camera: Saving image
+2015-04-30 13:50:08.745 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135008.745.jpg
+2015-04-30 13:50:08.748 D/Camera: Acquired image
+2015-04-30 13:50:08.754 D/Camera: Image capture completed
+2015-04-30 13:50:09.297 D/Camera: Initiating still capture
+2015-04-30 13:50:09.298 D/Camera: Capture ID 4
+2015-04-30 13:50:09.963 D/Camera: Still capture image available
+2015-04-30 13:50:09.964 D/Camera: Saving image
+2015-04-30 13:50:09.968 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135009.965.jpg
+2015-04-30 13:50:09.973 D/Camera: Acquired image
+2015-04-30 13:50:09.976 D/Camera: Image capture completed
+2015-04-30 13:50:10.299 D/Camera: Initiating still capture
+2015-04-30 13:50:10.303 D/Camera: Capture ID 5
+2015-04-30 13:50:11.233 D/Camera: Still capture image available
+2015-04-30 13:50:11.236 D/Camera: Saving image
+2015-04-30 13:50:11.240 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135011.237.jpg
+2015-04-30 13:50:11.244 D/Camera: Image capture completed
+2015-04-30 13:50:11.247 D/Camera: Acquired image
+2015-04-30 13:50:11.304 D/Camera: Initiating still capture
+2015-04-30 13:50:11.305 D/Camera: Capture ID 6
+2015-04-30 13:50:12.306 D/Camera: Initiating still capture
+2015-04-30 13:50:12.311 D/Camera: Capture ID 7
+2015-04-30 13:50:12.443 D/Camera: Still capture image available
+2015-04-30 13:50:12.445 D/Camera: Saving image
+2015-04-30 13:50:12.446 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135012.446.jpg
+2015-04-30 13:50:12.450 D/Camera: Acquired image
+2015-04-30 13:50:12.452 D/Camera: Image capture completed
+2015-04-30 13:50:13.312 D/Camera: Initiating still capture
+2015-04-30 13:50:13.314 D/Camera: Capture ID 8
+2015-04-30 13:50:13.764 D/Camera: Still capture image available
+2015-04-30 13:50:13.766 D/Camera: Saving image
+2015-04-30 13:50:13.767 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135013.766.jpg
+2015-04-30 13:50:13.771 D/Camera: Image capture completed
+2015-04-30 13:50:13.773 D/Camera: Acquired image
+2015-04-30 13:50:14.314 D/Camera: Initiating still capture
+2015-04-30 13:50:14.317 D/Camera: Capture ID 9
+2015-04-30 13:50:14.832 D/Camera: Still capture image available
+2015-04-30 13:50:14.833 D/Camera: Saving image
+2015-04-30 13:50:14.834 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135014.833.jpg
+2015-04-30 13:50:14.837 D/Camera: Acquired image
+2015-04-30 13:50:14.842 D/Camera: Image capture completed
+2015-04-30 13:50:15.318 D/Camera: Initiating still capture
+2015-04-30 13:50:15.320 D/Camera: Capture ID 10
+2015-04-30 13:50:15.997 D/Camera: Still capture image available
+2015-04-30 13:50:15.999 D/Camera: Saving image
+2015-04-30 13:50:16.000 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135016.000.jpg
+2015-04-30 13:50:16.004 D/Camera: Image capture completed
+2015-04-30 13:50:16.006 D/Camera: Acquired image
+2015-04-30 13:50:16.320 D/Camera: Initiating still capture
+2015-04-30 13:50:16.325 D/Camera: Capture ID 11
+2015-04-30 13:50:17.125 D/Camera: Still capture image available
+2015-04-30 13:50:17.129 D/Camera: Saving image
+2015-04-30 13:50:17.132 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135017.131.jpg
+2015-04-30 13:50:17.134 D/Camera: Acquired image
+2015-04-30 13:50:17.135 D/Camera: Image capture completed
+2015-04-30 13:50:17.326 D/Camera: Initiating still capture
+2015-04-30 13:50:17.329 D/Camera: Capture ID 12
+2015-04-30 13:50:18.253 D/Camera: Still capture image available
+2015-04-30 13:50:18.254 D/Camera: Saving image
+2015-04-30 13:50:18.256 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135018.255.jpg
+2015-04-30 13:50:18.259 D/Camera: Image capture completed
+2015-04-30 13:50:18.260 D/Camera: Acquired image
+2015-04-30 13:50:18.331 D/Camera: Initiating still capture
+2015-04-30 13:50:18.335 D/Camera: Capture ID 13
+2015-04-30 13:50:19.335 D/Camera: Initiating still capture
+2015-04-30 13:50:19.336 D/Camera: Capture ID 14
+2015-04-30 13:50:19.384 D/Camera: Still capture image available
+2015-04-30 13:50:19.385 D/Camera: Saving image
+2015-04-30 13:50:19.386 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135019.386.jpg
+2015-04-30 13:50:19.389 D/Camera: Acquired image
+2015-04-30 13:50:19.391 D/Camera: Image capture completed
+2015-04-30 13:50:20.337 D/Camera: Initiating still capture
+2015-04-30 13:50:20.338 D/Camera: Capture ID 15
+2015-04-30 13:50:20.594 D/Camera: Still capture image available
+2015-04-30 13:50:20.596 D/Camera: Saving image
+2015-04-30 13:50:20.597 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135020.596.jpg
+2015-04-30 13:50:20.603 D/Camera: Acquired image
+2015-04-30 13:50:20.635 D/Camera: Image capture completed
+2015-04-30 13:50:21.338 D/Camera: Initiating still capture
+2015-04-30 13:50:21.340 D/Camera: Capture ID 16
+2015-04-30 13:50:21.727 D/Camera: Still capture image available
+2015-04-30 13:50:21.729 D/Camera: Saving image
+2015-04-30 13:50:21.731 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135021.730.jpg
+2015-04-30 13:50:21.739 D/Camera: Acquired image
+2015-04-30 13:50:21.748 D/Camera: Image capture completed
+2015-04-30 13:50:22.340 D/Camera: Initiating still capture
+2015-04-30 13:50:22.341 D/Camera: Capture ID 17
+2015-04-30 13:50:23.014 D/Camera: Still capture image available
+2015-04-30 13:50:23.016 D/Camera: Saving image
+2015-04-30 13:50:23.017 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135023.016.jpg
+2015-04-30 13:50:23.020 D/Camera: Image capture completed
+2015-04-30 13:50:23.022 D/Camera: Acquired image
+2015-04-30 13:50:23.345 D/Camera: Initiating still capture
+2015-04-30 13:50:23.345 D/Camera: Capture ID 18
+2015-04-30 13:50:24.321 D/Camera: Still capture image available
+2015-04-30 13:50:24.324 D/Camera: Saving image
+2015-04-30 13:50:24.325 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135024.324.jpg
+2015-04-30 13:50:24.331 D/Camera: Acquired image
+2015-04-30 13:50:24.332 D/Camera: Image capture completed
+2015-04-30 13:50:24.346 D/Camera: Initiating still capture
+2015-04-30 13:50:24.347 D/Camera: Capture ID 19
+2015-04-30 13:50:25.348 D/Camera: Initiating still capture
+2015-04-30 13:50:25.354 D/Camera: Capture ID 20
+2015-04-30 13:50:25.657 D/Camera: Still capture image available
+2015-04-30 13:50:25.659 D/Camera: Saving image
+2015-04-30 13:50:25.661 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135025.660.jpg
+2015-04-30 13:50:25.667 D/Camera: Acquired image
+2015-04-30 13:50:25.671 D/Camera: Image capture completed
+2015-04-30 13:50:26.361 D/Camera: Initiating still capture
+2015-04-30 13:50:26.363 D/Camera: Capture ID 21
+2015-04-30 13:50:26.891 D/Camera: Still capture image available
+2015-04-30 13:50:26.893 D/Camera: Saving image
+2015-04-30 13:50:26.895 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135026.894.jpg
+2015-04-30 13:50:26.899 D/Camera: Acquired image
+2015-04-30 13:50:26.903 D/Camera: Image capture completed
+2015-04-30 13:50:27.363 D/Camera: Initiating still capture
+2015-04-30 13:50:27.364 D/Camera: Capture ID 22
+2015-04-30 13:50:28.337 D/Camera: Still capture image available
+2015-04-30 13:50:28.341 D/Camera: Saving image
+2015-04-30 13:50:28.343 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135028.341.jpg
+2015-04-30 13:50:28.347 D/Camera: Acquired image
+2015-04-30 13:50:28.356 D/Camera: Image capture completed
+2015-04-30 13:50:28.365 D/Camera: Initiating still capture
+2015-04-30 13:50:28.378 D/Camera: Capture ID 23
+2015-04-30 13:50:29.379 D/Camera: Initiating still capture
+2015-04-30 13:50:29.381 D/Camera: Capture ID 24
+2015-04-30 13:50:29.720 D/Camera: Still capture image available
+2015-04-30 13:50:29.723 D/Camera: Saving image
+2015-04-30 13:50:29.724 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135029.723.jpg
+2015-04-30 13:50:29.728 D/Camera: Image capture completed
+2015-04-30 13:50:29.735 D/Camera: Acquired image
+2015-04-30 13:50:30.384 D/Camera: Initiating still capture
+2015-04-30 13:50:30.387 D/Camera: Capture ID 25
+2015-04-30 13:50:31.056 D/Camera: Still capture image available
+2015-04-30 13:50:31.058 D/Camera: Saving image
+2015-04-30 13:50:31.059 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135031.058.jpg
+2015-04-30 13:50:31.065 D/Camera: Image capture completed
+2015-04-30 13:50:31.068 D/Camera: Acquired image
+2015-04-30 13:50:31.389 D/Camera: Initiating still capture
+2015-04-30 13:50:31.395 D/Camera: Capture ID 26
+2015-04-30 13:50:32.350 D/Camera: Still capture image available
+2015-04-30 13:50:32.357 D/Camera: Saving image
+2015-04-30 13:50:32.362 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135032.359.jpg
+2015-04-30 13:50:32.364 D/Camera: Image capture completed
+2015-04-30 13:50:32.374 D/Camera: Acquired image
+2015-04-30 13:50:32.399 D/Camera: Initiating still capture
+2015-04-30 13:50:32.400 D/Camera: Capture ID 27
+2015-04-30 13:50:33.401 D/Camera: Initiating still capture
+2015-04-30 13:50:33.402 D/Camera: Capture ID 28
+2015-04-30 13:50:33.647 D/Camera: Still capture image available
+2015-04-30 13:50:33.649 D/Camera: Saving image
+2015-04-30 13:50:33.650 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135033.649.jpg
+2015-04-30 13:50:33.661 D/Camera: Acquired image
+2015-04-30 13:50:33.665 D/Camera: Image capture completed
+2015-04-30 13:50:34.408 D/Camera: Initiating still capture
+2015-04-30 13:50:34.413 D/Camera: Capture ID 29
+2015-04-30 13:50:35.072 D/Camera: Still capture image available
+2015-04-30 13:50:35.074 D/Camera: Saving image
+2015-04-30 13:50:35.076 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135035.075.jpg
+2015-04-30 13:50:35.080 D/Camera: Acquired image
+2015-04-30 13:50:35.085 D/Camera: Image capture completed
+2015-04-30 13:50:35.417 D/Camera: Initiating still capture
+2015-04-30 13:50:35.422 D/Camera: Capture ID 30
+2015-04-30 13:50:36.425 D/Camera: Initiating still capture
+2015-04-30 13:50:36.426 D/Camera: Capture ID 31
+2015-04-30 13:50:36.432 D/Camera: Still capture image available
+2015-04-30 13:50:36.435 D/Camera: Saving image
+2015-04-30 13:50:36.436 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135036.435.jpg
+2015-04-30 13:50:36.441 D/Camera: Image capture completed
+2015-04-30 13:50:36.444 D/Camera: Acquired image
+2015-04-30 13:50:37.427 D/Camera: Initiating still capture
+2015-04-30 13:50:37.430 D/Camera: Capture ID 32
+2015-04-30 13:50:37.732 D/Camera: Still capture image available
+2015-04-30 13:50:37.734 D/Camera: Saving image
+2015-04-30 13:50:37.739 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135037.735.jpg
+2015-04-30 13:50:37.745 D/Camera: Acquired image
+2015-04-30 13:50:37.753 D/Camera: Image capture completed
+2015-04-30 13:50:38.431 D/Camera: Initiating still capture
+2015-04-30 13:50:38.437 D/Camera: Capture ID 33
+2015-04-30 13:50:38.992 D/Camera: Still capture image available
+2015-04-30 13:50:38.994 D/Camera: Saving image
+2015-04-30 13:50:38.996 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135038.995.jpg
+2015-04-30 13:50:39.000 D/Camera: Image capture completed
+2015-04-30 13:50:39.003 D/Camera: Acquired image
+2015-04-30 13:50:39.439 D/Camera: Initiating still capture
+2015-04-30 13:50:39.440 D/Camera: Capture ID 34
+2015-04-30 13:50:40.213 D/Camera: Still capture image available
+2015-04-30 13:50:40.215 D/Camera: Saving image
+2015-04-30 13:50:40.216 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135040.216.jpg
+2015-04-30 13:50:40.220 D/Camera: Acquired image
+2015-04-30 13:50:40.224 D/Camera: Image capture completed
+2015-04-30 13:50:40.441 D/Camera: Initiating still capture
+2015-04-30 13:50:40.445 D/Camera: Capture ID 35
+2015-04-30 13:50:41.448 D/Camera: Initiating still capture
+2015-04-30 13:50:41.454 D/Camera: Capture ID 36
+2015-04-30 13:50:41.556 D/Camera: Still capture image available
+2015-04-30 13:50:41.566 D/Camera: Saving image
+2015-04-30 13:50:41.569 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135041.567.jpg
+2015-04-30 13:50:41.576 D/Camera: Acquired image
+2015-04-30 13:50:41.581 D/Camera: Image capture completed
+2015-04-30 13:50:42.458 D/Camera: Initiating still capture
+2015-04-30 13:50:42.459 D/Camera: Capture ID 37
+2015-04-30 13:50:43.086 D/Camera: Still capture image available
+2015-04-30 13:50:43.088 D/Camera: Saving image
+2015-04-30 13:50:43.089 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135043.089.jpg
+2015-04-30 13:50:43.101 D/Camera: Acquired image
+2015-04-30 13:50:43.104 D/Camera: Image capture completed
+2015-04-30 13:50:43.459 D/Camera: Initiating still capture
+2015-04-30 13:50:43.464 D/Camera: Capture ID 38
+2015-04-30 13:50:44.472 D/Camera: Initiating still capture
+2015-04-30 13:50:44.473 D/Camera: Capture ID 39
+2015-04-30 13:50:44.474 D/Camera: Still capture image available
+2015-04-30 13:50:44.475 D/Camera: Saving image
+2015-04-30 13:50:44.477 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135044.475.jpg
+2015-04-30 13:50:44.486 D/Camera: Acquired image
+2015-04-30 13:50:44.499 D/Camera: Image capture completed
+2015-04-30 13:50:45.473 D/Camera: Initiating still capture
+2015-04-30 13:50:45.476 D/Camera: Capture ID 40
+2015-04-30 13:50:45.744 D/Camera: Still capture image available
+2015-04-30 13:50:45.746 D/Camera: Saving image
+2015-04-30 13:50:45.748 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135045.747.jpg
+2015-04-30 13:50:45.751 D/Camera: Acquired image
+2015-04-30 13:50:45.753 D/Camera: Image capture completed
+2015-04-30 13:50:46.493 D/Camera: Initiating still capture
+2015-04-30 13:50:46.494 D/Camera: Capture ID 41
+2015-04-30 13:50:46.955 D/Camera: Still capture image available
+2015-04-30 13:50:46.958 D/Camera: Saving image
+2015-04-30 13:50:46.961 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135046.959.jpg
+2015-04-30 13:50:46.965 D/Camera: Acquired image
+2015-04-30 13:50:46.973 D/Camera: Image capture completed
+2015-04-30 13:50:47.495 D/Camera: Initiating still capture
+2015-04-30 13:50:47.496 D/Camera: Capture ID 42
+2015-04-30 13:50:48.313 D/Camera: Still capture image available
+2015-04-30 13:50:48.315 D/Camera: Saving image
+2015-04-30 13:50:48.316 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135048.315.jpg
+2015-04-30 13:50:48.320 D/Camera: Acquired image
+2015-04-30 13:50:48.325 D/Camera: Image capture completed
+2015-04-30 13:50:48.497 D/Camera: Initiating still capture
+2015-04-30 13:50:48.508 D/Camera: Capture ID 43
+2015-04-30 13:50:49.510 D/Camera: Initiating still capture
+2015-04-30 13:50:49.511 D/Camera: Capture ID 44
+2015-04-30 13:50:49.582 D/Camera: Still capture image available
+2015-04-30 13:50:49.583 D/Camera: Saving image
+2015-04-30 13:50:49.585 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135049.584.jpg
+2015-04-30 13:50:49.588 D/Camera: Acquired image
+2015-04-30 13:50:49.594 D/Camera: Image capture completed
+2015-04-30 13:50:50.515 D/Camera: Initiating still capture
+2015-04-30 13:50:50.516 D/Camera: Capture ID 45
+2015-04-30 13:50:50.854 D/Camera: Still capture image available
+2015-04-30 13:50:50.857 D/Camera: Saving image
+2015-04-30 13:50:50.859 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135050.858.jpg
+2015-04-30 13:50:50.865 D/Camera: Acquired image
+2015-04-30 13:50:50.867 D/Camera: Image capture completed
+2015-04-30 13:50:51.517 D/Camera: Initiating still capture
+2015-04-30 13:50:51.520 D/Camera: Capture ID 46
+2015-04-30 13:50:52.193 D/Camera: Still capture image available
+2015-04-30 13:50:52.195 D/Camera: Saving image
+2015-04-30 13:50:52.213 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135052.195.jpg
+2015-04-30 13:50:52.232 D/Camera: Acquired image
+2015-04-30 13:50:52.247 D/Camera: Image capture completed
+2015-04-30 13:50:52.522 D/Camera: Initiating still capture
+2015-04-30 13:50:52.523 D/Camera: Capture ID 47
+2015-04-30 13:50:53.444 D/Camera: Still capture image available
+2015-04-30 13:50:53.446 D/Camera: Saving image
+2015-04-30 13:50:53.448 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135053.447.jpg
+2015-04-30 13:50:53.458 D/Camera: Acquired image
+2015-04-30 13:50:53.462 D/Camera: Image capture completed
+2015-04-30 13:50:53.524 D/Camera: Initiating still capture
+2015-04-30 13:50:53.529 D/Camera: Capture ID 48
+2015-04-30 13:50:54.530 D/Camera: Initiating still capture
+2015-04-30 13:50:54.534 D/Camera: Capture ID 49
+2015-04-30 13:50:54.826 D/Camera: Still capture image available
+2015-04-30 13:50:54.829 D/Camera: Saving image
+2015-04-30 13:50:54.832 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135054.829.jpg
+2015-04-30 13:50:54.834 D/Camera: Image capture completed
+2015-04-30 13:50:54.838 D/Camera: Acquired image
+2015-04-30 13:50:55.536 D/Camera: Initiating still capture
+2015-04-30 13:50:55.538 D/Camera: Capture ID 50
+2015-04-30 13:50:55.966 D/Camera: Still capture image available
+2015-04-30 13:50:55.968 D/Camera: Saving image
+2015-04-30 13:50:55.970 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135055.969.jpg
+2015-04-30 13:50:55.975 D/Camera: Image capture completed
+2015-04-30 13:50:55.976 D/Camera: Acquired image
+2015-04-30 13:50:56.538 D/Camera: Initiating still capture
+2015-04-30 13:50:56.540 D/Camera: Capture ID 51
+2015-04-30 13:50:57.302 D/Camera: Still capture image available
+2015-04-30 13:50:57.304 D/Camera: Saving image
+2015-04-30 13:50:57.306 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135057.305.jpg
+2015-04-30 13:50:57.309 D/Camera: Acquired image
+2015-04-30 13:50:57.327 D/Camera: Image capture completed
+2015-04-30 13:50:57.541 D/Camera: Initiating still capture
+2015-04-30 13:50:57.541 D/Camera: Capture ID 52
+2015-04-30 13:50:58.367 D/Camera: Still capture image available
+2015-04-30 13:50:58.369 D/Camera: Saving image
+2015-04-30 13:50:58.370 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135058.369.jpg
+2015-04-30 13:50:58.372 D/Camera: Acquired image
+2015-04-30 13:50:58.464 D/Camera: Image capture completed
+2015-04-30 13:50:58.545 D/Camera: Initiating still capture
+2015-04-30 13:50:58.546 D/Camera: Capture ID 53
+2015-04-30 13:50:59.542 D/Camera: Still capture image available
+2015-04-30 13:50:59.543 D/Camera: Saving image
+2015-04-30 13:50:59.544 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135059.543.jpg
+2015-04-30 13:50:59.547 D/Camera: Initiating still capture
+2015-04-30 13:50:59.548 D/Camera: Capture ID 54
+2015-04-30 13:50:59.548 D/Camera: Acquired image
+2015-04-30 13:50:59.555 D/Camera: Image capture completed
+2015-04-30 13:51:00.549 D/Camera: Initiating still capture
+2015-04-30 13:51:00.551 D/Camera: Capture ID 55
+2015-04-30 13:51:00.749 D/Camera: Still capture image available
+2015-04-30 13:51:00.752 D/Camera: Saving image
+2015-04-30 13:51:00.754 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135100.753.jpg
+2015-04-30 13:51:00.759 D/Camera: Acquired image
+2015-04-30 13:51:00.764 D/Camera: Image capture completed
+2015-04-30 13:51:01.554 D/Camera: Initiating still capture
+2015-04-30 13:51:01.558 D/Camera: Capture ID 56
+2015-04-30 13:51:02.200 D/Camera: Still capture image available
+2015-04-30 13:51:02.210 D/Camera: Image capture completed
+2015-04-30 13:51:02.212 D/Camera: Saving image
+2015-04-30 13:51:02.213 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135102.212.jpg
+2015-04-30 13:51:02.217 D/Camera: Acquired image
+2015-04-30 13:51:02.561 D/Camera: Initiating still capture
+2015-04-30 13:51:02.567 D/Camera: Capture ID 57
+2015-04-30 13:51:02.755 I/DecoApp: Application started
+2015-04-30 13:51:02.805 D/DecoCameraService: isRunning true
+2015-04-30 13:51:03.302 D/Camera: Still capture image available
+2015-04-30 13:51:03.303 D/Camera: Saving image
+2015-04-30 13:51:03.304 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135103.303.jpg
+2015-04-30 13:51:03.307 D/Camera: Image capture completed
+2015-04-30 13:51:03.309 D/Camera: Acquired image
+2015-04-30 13:51:03.569 D/Camera: Initiating still capture
+2015-04-30 13:51:03.570 D/Camera: Capture ID 58
+2015-04-30 13:51:04.347 D/Camera: Still capture image available
+2015-04-30 13:51:04.349 D/Camera: Saving image
+2015-04-30 13:51:04.350 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135104.349.jpg
+2015-04-30 13:51:04.354 D/Camera: Acquired image
+2015-04-30 13:51:04.357 D/Camera: Image capture completed
+2015-04-30 13:51:04.571 D/Camera: Initiating still capture
+2015-04-30 13:51:04.587 D/Camera: Capture ID 59
+2015-04-30 13:51:05.591 D/Camera: Initiating still capture
+2015-04-30 13:51:05.596 D/Camera: Capture ID 60
+2015-04-30 13:51:05.690 D/Camera: Still capture image available
+2015-04-30 13:51:05.693 D/Camera: Saving image
+2015-04-30 13:51:05.695 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135105.694.jpg
+2015-04-30 13:51:05.700 D/Camera: Acquired image
+2015-04-30 13:51:05.727 D/Camera: Image capture completed
+2015-04-30 13:51:06.601 D/Camera: Initiating still capture
+2015-04-30 13:51:06.606 D/Camera: Capture ID 61
+2015-04-30 13:51:07.110 D/Camera: Still capture image available
+2015-04-30 13:51:07.118 D/Camera: Saving image
+2015-04-30 13:51:07.119 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135107.119.jpg
+2015-04-30 13:51:07.123 D/Camera: Acquired image
+2015-04-30 13:51:07.128 D/Camera: Image capture completed
+2015-04-30 13:51:07.608 D/Camera: Initiating still capture
+2015-04-30 13:51:07.609 D/Camera: Capture ID 62
+2015-04-30 13:51:08.334 D/Camera: Still capture image available
+2015-04-30 13:51:08.336 D/Camera: Saving image
+2015-04-30 13:51:08.338 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135108.337.jpg
+2015-04-30 13:51:08.342 D/Camera: Acquired image
+2015-04-30 13:51:08.350 D/Camera: Image capture completed
+2015-04-30 13:51:08.610 D/Camera: Initiating still capture
+2015-04-30 13:51:08.614 D/Camera: Capture ID 63
+2015-04-30 13:51:09.603 D/Camera: Still capture image available
+2015-04-30 13:51:09.605 D/Camera: Saving image
+2015-04-30 13:51:09.606 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135109.606.jpg
+2015-04-30 13:51:09.612 D/Camera: Acquired image
+2015-04-30 13:51:09.619 D/Camera: Initiating still capture
+2015-04-30 13:51:09.621 D/Camera: Capture ID 64
+2015-04-30 13:51:09.624 D/Camera: Image capture completed
+2015-04-30 13:51:10.622 D/Camera: Initiating still capture
+2015-04-30 13:51:10.624 D/Camera: Capture ID 65
+2015-04-30 13:51:10.688 D/Camera: Still capture image available
+2015-04-30 13:51:10.696 D/Camera: Saving image
+2015-04-30 13:51:10.699 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135110.697.jpg
+2015-04-30 13:51:10.703 D/Camera: Acquired image
+2015-04-30 13:51:10.707 D/Camera: Image capture completed
+2015-04-30 13:51:11.626 D/Camera: Initiating still capture
+2015-04-30 13:51:11.627 D/Camera: Capture ID 66
+2015-04-30 13:51:12.074 D/Camera: Still capture image available
+2015-04-30 13:51:12.076 D/Camera: Saving image
+2015-04-30 13:51:12.077 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135112.076.jpg
+2015-04-30 13:51:12.081 D/Camera: Acquired image
+2015-04-30 13:51:12.091 D/Camera: Image capture completed
+2015-04-30 13:51:12.629 D/Camera: Initiating still capture
+2015-04-30 13:51:12.636 D/Camera: Capture ID 67
+2015-04-30 13:51:13.422 D/DecoCameraService: onDestroy
+2015-04-30 13:51:13.423 I/Camera: Closing camera
+2015-04-30 13:51:13.423 D/Camera: Closing camera capture session
+2015-04-30 13:51:13.423 D/Camera: Closing camera device
+2015-04-30 13:51:13.463 D/Camera: Still capture image available
+2015-04-30 13:51:13.483 D/Camera: Saving image
+2015-04-30 13:51:13.484 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135113.484.jpg
+2015-04-30 13:51:13.489 D/Camera: Acquired image
+2015-04-30 13:52:08.315 I/DecoApp: Application started
+2015-04-30 13:52:08.477 D/DecoCameraService: isRunning false
+2015-04-30 13:53:07.500 I/DecoApp: Application started
+2015-04-30 13:53:07.608 D/DecoCameraService: isRunning false
+2015-04-30 13:53:28.556 I/DecoApp: Application started
+2015-04-30 13:53:28.557 D/DecoCameraService: onCreate
+2015-04-30 13:53:28.560 D/DecoCameraService: onStartCommand intent Intent { cmp=edu.wisc.physics.wipac.deco.service/.DecoCameraService } flags 0 startId 1
+2015-04-30 13:53:28.584 I/Camera: Opening camera
+2015-04-30 13:53:28.953 D/Camera: onCameraDeviceOpen - thread Deco Camera Service Thread(6932)
+2015-04-30 13:53:28.966 D/Camera: Still capture output size 5312x2988
+2015-04-30 13:53:28.967 D/Camera: onCameraDeviceOpen camera ready true
+2015-04-30 13:53:28.968 D/Camera: getCameraSurfaces
+2015-04-30 13:53:29.000 D/Camera: onCameraCaptureSessionConfigured
+2015-04-30 13:53:29.010 I/Camera: Supported hardware level (2) does not support exposure time range characteristic
+2015-04-30 13:53:29.019 D/Camera: Initiating still capture
+2015-04-30 13:53:29.021 D/Camera: Capture ID 0
+2015-04-30 13:53:30.022 D/Camera: Initiating still capture
+2015-04-30 13:53:30.023 D/Camera: Capture ID 1
+2015-04-30 13:53:30.164 D/Camera: Still capture image available
+2015-04-30 13:53:30.166 D/Camera: Saving image
+2015-04-30 13:53:30.169 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135330.167.jpg
+2015-04-30 13:53:30.174 D/Camera: Acquired image
+2015-04-30 13:53:30.193 D/Camera: Image capture completed
+2015-04-30 13:53:31.024 D/Camera: Initiating still capture
+2015-04-30 13:53:31.027 D/Camera: Capture ID 2
+2015-04-30 13:53:31.361 D/Camera: Still capture image available
+2015-04-30 13:53:31.363 D/Camera: Saving image
+2015-04-30 13:53:31.364 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135331.364.jpg
+2015-04-30 13:53:31.368 D/Camera: Acquired image
+2015-04-30 13:53:31.370 D/Camera: Image capture completed
+2015-04-30 13:53:32.028 D/Camera: Initiating still capture
+2015-04-30 13:53:32.030 D/Camera: Capture ID 3
+2015-04-30 13:53:32.600 D/Camera: Still capture image available
+2015-04-30 13:53:32.609 D/Camera: Saving image
+2015-04-30 13:53:32.611 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135332.610.jpg
+2015-04-30 13:53:32.615 D/Camera: Acquired image
+2015-04-30 13:53:32.618 D/Camera: Image capture completed
+2015-04-30 13:53:33.031 D/Camera: Initiating still capture
+2015-04-30 13:53:33.037 D/Camera: Capture ID 4
+2015-04-30 13:53:34.046 D/Camera: Still capture image available
+2015-04-30 13:53:34.047 D/Camera: Initiating still capture
+2015-04-30 13:53:34.048 D/Camera: Capture ID 5
+2015-04-30 13:53:34.050 D/Camera: Saving image
+2015-04-30 13:53:34.053 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135334.052.jpg
+2015-04-30 13:53:34.057 D/Camera: Acquired image
+2015-04-30 13:53:34.066 D/Camera: Image capture completed
+2015-04-30 13:53:35.049 D/Camera: Initiating still capture
+2015-04-30 13:53:35.053 D/Camera: Capture ID 6
+2015-04-30 13:53:35.286 D/Camera: Still capture image available
+2015-04-30 13:53:35.288 D/Camera: Saving image
+2015-04-30 13:53:35.289 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135335.289.jpg
+2015-04-30 13:53:35.294 D/Camera: Image capture completed
+2015-04-30 13:53:35.298 D/Camera: Acquired image
+2015-04-30 13:53:36.057 D/Camera: Initiating still capture
+2015-04-30 13:53:36.058 D/Camera: Capture ID 7
+2015-04-30 13:53:36.586 D/Camera: Still capture image available
+2015-04-30 13:53:36.588 D/Camera: Saving image
+2015-04-30 13:53:36.589 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135336.588.jpg
+2015-04-30 13:53:36.599 D/Camera: Acquired image
+2015-04-30 13:53:36.601 D/Camera: Image capture completed
+2015-04-30 13:53:37.061 D/Camera: Initiating still capture
+2015-04-30 13:53:37.062 D/Camera: Capture ID 8
+2015-04-30 13:53:37.855 D/Camera: Still capture image available
+2015-04-30 13:53:37.859 D/Camera: Saving image
+2015-04-30 13:53:37.862 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135337.861.jpg
+2015-04-30 13:53:37.866 D/Camera: Acquired image
+2015-04-30 13:53:37.867 D/Camera: Image capture completed
+2015-04-30 13:53:38.063 D/Camera: Initiating still capture
+2015-04-30 13:53:38.069 D/Camera: Capture ID 9
+2015-04-30 13:53:39.073 D/Camera: Initiating still capture
+2015-04-30 13:53:39.077 D/Camera: Capture ID 10
+2015-04-30 13:53:39.164 D/Camera: Still capture image available
+2015-04-30 13:53:39.166 D/Camera: Saving image
+2015-04-30 13:53:39.167 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135339.166.jpg
+2015-04-30 13:53:39.170 D/Camera: Acquired image
+2015-04-30 13:53:39.184 D/Camera: Image capture completed
+2015-04-30 13:53:40.080 D/Camera: Initiating still capture
+2015-04-30 13:53:40.090 D/Camera: Capture ID 11
+2015-04-30 13:53:40.499 D/Camera: Still capture image available
+2015-04-30 13:53:40.500 D/Camera: Saving image
+2015-04-30 13:53:40.507 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135340.501.jpg
+2015-04-30 13:53:40.511 D/Camera: Acquired image
+2015-04-30 13:53:40.514 D/Camera: Image capture completed
+2015-04-30 13:53:41.091 D/Camera: Initiating still capture
+2015-04-30 13:53:41.092 D/Camera: Capture ID 12
+2015-04-30 13:53:41.777 D/Camera: Still capture image available
+2015-04-30 13:53:41.779 D/Camera: Saving image
+2015-04-30 13:53:41.780 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135341.779.jpg
+2015-04-30 13:53:41.790 D/Camera: Acquired image
+2015-04-30 13:53:41.792 D/Camera: Image capture completed
+2015-04-30 13:53:42.094 D/Camera: Initiating still capture
+2015-04-30 13:53:42.098 D/Camera: Capture ID 13
+2015-04-30 13:53:43.102 D/Camera: Initiating still capture
+2015-04-30 13:53:43.104 D/Camera: Capture ID 14
+2015-04-30 13:53:43.135 D/Camera: Still capture image available
+2015-04-30 13:53:43.137 D/Camera: Saving image
+2015-04-30 13:53:43.138 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135343.138.jpg
+2015-04-30 13:53:43.146 D/Camera: Acquired image
+2015-04-30 13:53:43.157 D/Camera: Image capture completed
+2015-04-30 13:53:44.111 D/Camera: Initiating still capture
+2015-04-30 13:53:44.112 D/Camera: Capture ID 15
+2015-04-30 13:53:44.399 D/Camera: Still capture image available
+2015-04-30 13:53:44.401 D/Camera: Saving image
+2015-04-30 13:53:44.402 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135344.401.jpg
+2015-04-30 13:53:44.406 D/Camera: Acquired image
+2015-04-30 13:53:44.409 D/Camera: Image capture completed
+2015-04-30 13:53:45.113 D/Camera: Initiating still capture
+2015-04-30 13:53:45.117 D/Camera: Capture ID 16
+2015-04-30 13:53:45.669 D/Camera: Still capture image available
+2015-04-30 13:53:45.672 D/Camera: Saving image
+2015-04-30 13:53:45.673 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135345.672.jpg
+2015-04-30 13:53:45.678 D/Camera: Acquired image
+2015-04-30 13:53:45.686 D/Camera: Image capture completed
+2015-04-30 13:53:46.121 D/Camera: Initiating still capture
+2015-04-30 13:53:46.126 D/Camera: Capture ID 17
+2015-04-30 13:53:46.995 D/Camera: Still capture image available
+2015-04-30 13:53:46.997 D/Camera: Saving image
+2015-04-30 13:53:46.998 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135346.998.jpg
+2015-04-30 13:53:47.008 D/Camera: Acquired image
+2015-04-30 13:53:47.010 D/Camera: Image capture completed
+2015-04-30 13:53:47.128 D/Camera: Initiating still capture
+2015-04-30 13:53:47.129 D/Camera: Capture ID 18
+2015-04-30 13:53:48.130 D/Camera: Initiating still capture
+2015-04-30 13:53:48.138 D/Camera: Capture ID 19
+2015-04-30 13:53:48.254 D/Camera: Still capture image available
+2015-04-30 13:53:48.256 D/Camera: Saving image
+2015-04-30 13:53:48.257 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135348.256.jpg
+2015-04-30 13:53:48.261 D/Camera: Acquired image
+2015-04-30 13:53:48.270 D/Camera: Image capture completed
+2015-04-30 13:53:49.142 D/Camera: Initiating still capture
+2015-04-30 13:53:49.146 D/Camera: Capture ID 20
+2015-04-30 13:53:49.542 D/Camera: Still capture image available
+2015-04-30 13:53:49.544 D/Camera: Saving image
+2015-04-30 13:53:49.546 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135349.545.jpg
+2015-04-30 13:53:49.549 D/Camera: Image capture completed
+2015-04-30 13:53:49.552 D/Camera: Acquired image
+2015-04-30 13:53:50.162 D/Camera: Initiating still capture
+2015-04-30 13:53:50.163 D/Camera: Capture ID 21
+2015-04-30 13:53:50.840 D/Camera: Still capture image available
+2015-04-30 13:53:50.842 D/Camera: Saving image
+2015-04-30 13:53:50.844 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135350.843.jpg
+2015-04-30 13:53:50.848 D/Camera: Acquired image
+2015-04-30 13:53:50.854 D/Camera: Image capture completed
+2015-04-30 13:53:51.164 D/Camera: Initiating still capture
+2015-04-30 13:53:51.167 D/Camera: Capture ID 22
+2015-04-30 13:53:52.101 D/Camera: Still capture image available
+2015-04-30 13:53:52.103 D/Camera: Saving image
+2015-04-30 13:53:52.118 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135352.104.jpg
+2015-04-30 13:53:52.122 D/Camera: Acquired image
+2015-04-30 13:53:52.150 D/Camera: Image capture completed
+2015-04-30 13:53:52.169 D/Camera: Initiating still capture
+2015-04-30 13:53:52.170 D/Camera: Capture ID 23
+2015-04-30 13:53:53.170 D/Camera: Initiating still capture
+2015-04-30 13:53:53.176 D/Camera: Capture ID 24
+2015-04-30 13:53:53.402 D/Camera: Still capture image available
+2015-04-30 13:53:53.404 D/Camera: Saving image
+2015-04-30 13:53:53.406 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135353.405.jpg
+2015-04-30 13:53:53.410 D/Camera: Acquired image
+2015-04-30 13:53:53.419 D/Camera: Image capture completed
+2015-04-30 13:53:54.178 D/Camera: Initiating still capture
+2015-04-30 13:53:54.182 D/Camera: Capture ID 25
+2015-04-30 13:53:54.767 D/Camera: Still capture image available
+2015-04-30 13:53:54.769 D/Camera: Saving image
+2015-04-30 13:53:54.770 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135354.769.jpg
+2015-04-30 13:53:54.774 D/Camera: Acquired image
+2015-04-30 13:53:54.777 D/Camera: Image capture completed
+2015-04-30 13:53:55.185 D/Camera: Initiating still capture
+2015-04-30 13:53:55.190 D/Camera: Capture ID 26
+2015-04-30 13:53:56.058 D/Camera: Still capture image available
+2015-04-30 13:53:56.061 D/Camera: Saving image
+2015-04-30 13:53:56.071 D/Camera: Image capture completed
+2015-04-30 13:53:56.072 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135356.061.jpg
+2015-04-30 13:53:56.076 D/Camera: Acquired image
+2015-04-30 13:53:56.193 D/Camera: Initiating still capture
+2015-04-30 13:53:56.194 D/Camera: Capture ID 27
+2015-04-30 13:53:57.196 D/Camera: Initiating still capture
+2015-04-30 13:53:57.197 D/Camera: Capture ID 28
+2015-04-30 13:53:57.412 D/Camera: Still capture image available
+2015-04-30 13:53:57.414 D/Camera: Saving image
+2015-04-30 13:53:57.416 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135357.415.jpg
+2015-04-30 13:53:57.427 D/Camera: Acquired image
+2015-04-30 13:53:57.434 D/Camera: Image capture completed
+2015-04-30 13:53:58.197 D/Camera: Initiating still capture
+2015-04-30 13:53:58.199 D/Camera: Capture ID 29
+2015-04-30 13:53:58.680 D/Camera: Still capture image available
+2015-04-30 13:53:58.682 D/Camera: Saving image
+2015-04-30 13:53:58.684 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135358.683.jpg
+2015-04-30 13:53:58.687 D/Camera: Acquired image
+2015-04-30 13:53:58.695 D/Camera: Image capture completed
+2015-04-30 13:53:59.202 D/Camera: Initiating still capture
+2015-04-30 13:53:59.206 D/Camera: Capture ID 30
+2015-04-30 13:54:00.223 D/Camera: Initiating still capture
+2015-04-30 13:54:00.224 D/Camera: Capture ID 31
+2015-04-30 13:54:00.626 D/Camera: Still capture image available
+2015-04-30 13:54:00.629 D/Camera: Saving image
+2015-04-30 13:54:00.630 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135400.629.jpg
+2015-04-30 13:54:00.654 D/Camera: Acquired image
+2015-04-30 13:54:00.683 D/Camera: Image capture completed
+2015-04-30 13:54:01.225 D/Camera: Initiating still capture
+2015-04-30 13:54:01.229 D/Camera: Capture ID 32
+2015-04-30 13:54:02.233 D/Camera: Initiating still capture
+2015-04-30 13:54:02.247 D/Camera: Capture ID 33
+2015-04-30 13:54:02.993 D/Camera: Still capture image available
+2015-04-30 13:54:02.999 D/Camera: Saving image
+2015-04-30 13:54:03.016 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135403.001.jpg
+2015-04-30 13:54:03.028 D/Camera: Acquired image
+2015-04-30 13:54:03.030 D/Camera: Image capture completed
+2015-04-30 13:54:03.248 D/Camera: Initiating still capture
+2015-04-30 13:54:03.250 D/Camera: Capture ID 34
+2015-04-30 13:54:04.251 D/Camera: Initiating still capture
+2015-04-30 13:54:04.260 D/Camera: Capture ID 35
+2015-04-30 13:54:04.695 D/Camera: Still capture image available
+2015-04-30 13:54:04.699 D/Camera: Saving image
+2015-04-30 13:54:04.704 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135404.703.jpg
+2015-04-30 13:54:04.710 D/Camera: Acquired image
+2015-04-30 13:54:04.729 D/Camera: Image capture completed
+2015-04-30 13:54:05.278 D/Camera: Initiating still capture
+2015-04-30 13:54:05.281 D/Camera: Capture ID 36
+2015-04-30 13:54:06.289 D/Camera: Initiating still capture
+2015-04-30 13:54:06.296 D/Camera: Capture ID 37
+2015-04-30 13:54:06.769 D/Camera: Still capture image available
+2015-04-30 13:54:06.776 D/Camera: Saving image
+2015-04-30 13:54:06.788 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135406.785.jpg
+2015-04-30 13:54:06.812 D/Camera: Acquired image
+2015-04-30 13:54:06.817 D/Camera: Image capture completed
+2015-04-30 13:54:07.307 D/Camera: Initiating still capture
+2015-04-30 13:54:07.311 D/Camera: Capture ID 38
+2015-04-30 13:54:08.314 D/Camera: Initiating still capture
+2015-04-30 13:54:08.317 D/Camera: Capture ID 39
+2015-04-30 13:54:08.658 D/Camera: Still capture image available
+2015-04-30 13:54:08.664 D/Camera: Saving image
+2015-04-30 13:54:08.669 D/Camera: Image /storage/emulated/0/DECOv2Service/20150430_13/20150430_135408.666.jpg
+2015-04-30 13:54:08.672 D/Camera: Image capture completed
+2015-04-30 13:54:08.704 D/Camera: Acquired image
+2015-04-30 13:54:10.388 I/DecoApp: Application started
+2015-04-30 13:54:10.395 D/DecoCameraService: onCreate
+2015-04-30 13:54:10.406 E/DecoCameraService: FATAL ERROR: Uncaught exception!
+java.lang.RuntimeException: Unable to start service edu.wisc.physics.wipac.deco.service.DecoCameraService@1cadb55 with null: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3356)
+	at android.app.ActivityThread.access$2200(ActivityThread.java:179)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1560)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:145)
+	at android.app.ActivityThread.main(ActivityThread.java:5974)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at java.lang.reflect.Method.invoke(Method.java:372)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1388)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1183)
+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at edu.wisc.physics.wipac.deco.service.DecoCameraService.onStartCommand(DecoCameraService.java:60)
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3339)
+	... 9 more
+2015-04-30 13:59:18.901 I/DecoApp: Application started
+2015-04-30 13:59:18.904 D/DecoCameraService: onCreate
+2015-04-30 13:59:18.908 E/DecoCameraService: FATAL ERROR: Uncaught exception!
+java.lang.RuntimeException: Unable to start service edu.wisc.physics.wipac.deco.service.DecoCameraService@1cadb55 with null: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3356)
+	at android.app.ActivityThread.access$2200(ActivityThread.java:179)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1560)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:145)
+	at android.app.ActivityThread.main(ActivityThread.java:5974)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at java.lang.reflect.Method.invoke(Method.java:372)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1388)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1183)
+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at edu.wisc.physics.wipac.deco.service.DecoCameraService.onStartCommand(DecoCameraService.java:60)
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3339)
+	... 9 more
+2015-04-30 14:04:27.096 I/DecoApp: Application started
+2015-04-30 14:04:27.099 D/DecoCameraService: onCreate
+2015-04-30 14:04:27.113 E/DecoCameraService: FATAL ERROR: Uncaught exception!
+java.lang.RuntimeException: Unable to start service edu.wisc.physics.wipac.deco.service.DecoCameraService@1cadb55 with null: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3356)
+	at android.app.ActivityThread.access$2200(ActivityThread.java:179)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1560)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:145)
+	at android.app.ActivityThread.main(ActivityThread.java:5974)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at java.lang.reflect.Method.invoke(Method.java:372)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1388)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1183)
+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at edu.wisc.physics.wipac.deco.service.DecoCameraService.onStartCommand(DecoCameraService.java:60)
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3339)
+	... 9 more
+2015-04-30 14:09:35.976 I/DecoApp: Application started
+2015-04-30 14:09:35.980 D/DecoCameraService: onCreate
+2015-04-30 14:09:35.990 E/DecoCameraService: FATAL ERROR: Uncaught exception!
+java.lang.RuntimeException: Unable to start service edu.wisc.physics.wipac.deco.service.DecoCameraService@1cadb55 with null: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3356)
+	at android.app.ActivityThread.access$2200(ActivityThread.java:179)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1560)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:145)
+	at android.app.ActivityThread.main(ActivityThread.java:5974)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at java.lang.reflect.Method.invoke(Method.java:372)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1388)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1183)
+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at edu.wisc.physics.wipac.deco.service.DecoCameraService.onStartCommand(DecoCameraService.java:60)
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3339)
+	... 9 more
+2015-04-30 14:14:44.147 I/DecoApp: Application started
+2015-04-30 14:14:44.150 D/DecoCameraService: onCreate
+2015-04-30 14:14:44.155 E/DecoCameraService: FATAL ERROR: Uncaught exception!
+java.lang.RuntimeException: Unable to start service edu.wisc.physics.wipac.deco.service.DecoCameraService@1cadb55 with null: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3356)
+	at android.app.ActivityThread.access$2200(ActivityThread.java:179)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1560)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:145)
+	at android.app.ActivityThread.main(ActivityThread.java:5974)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at java.lang.reflect.Method.invoke(Method.java:372)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1388)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1183)
+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at edu.wisc.physics.wipac.deco.service.DecoCameraService.onStartCommand(DecoCameraService.java:60)
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3339)
+	... 9 more
+2015-04-30 14:19:53.051 I/DecoApp: Application started
+2015-04-30 14:19:53.053 D/DecoCameraService: onCreate
+2015-04-30 14:19:53.057 E/DecoCameraService: FATAL ERROR: Uncaught exception!
+java.lang.RuntimeException: Unable to start service edu.wisc.physics.wipac.deco.service.DecoCameraService@1cadb55 with null: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3356)
+	at android.app.ActivityThread.access$2200(ActivityThread.java:179)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1560)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:145)
+	at android.app.ActivityThread.main(ActivityThread.java:5974)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at java.lang.reflect.Method.invoke(Method.java:372)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1388)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1183)
+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at edu.wisc.physics.wipac.deco.service.DecoCameraService.onStartCommand(DecoCameraService.java:60)
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3339)
+	... 9 more
+2015-04-30 14:25:02.463 I/DecoApp: Application started
+2015-04-30 14:25:02.465 D/DecoCameraService: onCreate
+2015-04-30 14:25:02.469 E/DecoCameraService: FATAL ERROR: Uncaught exception!
+java.lang.RuntimeException: Unable to start service edu.wisc.physics.wipac.deco.service.DecoCameraService@1cadb55 with null: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3356)
+	at android.app.ActivityThread.access$2200(ActivityThread.java:179)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1560)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:145)
+	at android.app.ActivityThread.main(ActivityThread.java:5974)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at java.lang.reflect.Method.invoke(Method.java:372)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1388)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1183)
+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at edu.wisc.physics.wipac.deco.service.DecoCameraService.onStartCommand(DecoCameraService.java:60)
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3339)
+	... 9 more
+2015-04-30 14:30:10.797 I/DecoApp: Application started
+2015-04-30 14:30:10.800 D/DecoCameraService: onCreate
+2015-04-30 14:30:10.804 E/DecoCameraService: FATAL ERROR: Uncaught exception!
+java.lang.RuntimeException: Unable to start service edu.wisc.physics.wipac.deco.service.DecoCameraService@1cadb55 with null: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3356)
+	at android.app.ActivityThread.access$2200(ActivityThread.java:179)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1560)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:145)
+	at android.app.ActivityThread.main(ActivityThread.java:5974)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at java.lang.reflect.Method.invoke(Method.java:372)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1388)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1183)
+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at edu.wisc.physics.wipac.deco.service.DecoCameraService.onStartCommand(DecoCameraService.java:60)
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3339)
+	... 9 more
+2015-04-30 14:35:18.624 I/DecoApp: Application started
+2015-04-30 14:35:18.626 D/DecoCameraService: onCreate
+2015-04-30 14:35:18.631 E/DecoCameraService: FATAL ERROR: Uncaught exception!
+java.lang.RuntimeException: Unable to start service edu.wisc.physics.wipac.deco.service.DecoCameraService@1cadb55 with null: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3356)
+	at android.app.ActivityThread.access$2200(ActivityThread.java:179)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1560)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:145)
+	at android.app.ActivityThread.main(ActivityThread.java:5974)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at java.lang.reflect.Method.invoke(Method.java:372)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1388)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1183)
+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at edu.wisc.physics.wipac.deco.service.DecoCameraService.onStartCommand(DecoCameraService.java:60)
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3339)
+	... 9 more
+2015-04-30 14:40:27.200 I/DecoApp: Application started
+2015-04-30 14:40:27.202 D/DecoCameraService: onCreate
+2015-04-30 14:40:27.206 E/DecoCameraService: FATAL ERROR: Uncaught exception!
+java.lang.RuntimeException: Unable to start service edu.wisc.physics.wipac.deco.service.DecoCameraService@1cadb55 with null: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3356)
+	at android.app.ActivityThread.access$2200(ActivityThread.java:179)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1560)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:145)
+	at android.app.ActivityThread.main(ActivityThread.java:5974)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at java.lang.reflect.Method.invoke(Method.java:372)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1388)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1183)
+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at edu.wisc.physics.wipac.deco.service.DecoCameraService.onStartCommand(DecoCameraService.java:60)
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3339)
+	... 9 more
+2015-04-30 14:45:34.700 I/DecoApp: Application started
+2015-04-30 14:45:34.703 D/DecoCameraService: onCreate
+2015-04-30 14:45:34.708 E/DecoCameraService: FATAL ERROR: Uncaught exception!
+java.lang.RuntimeException: Unable to start service edu.wisc.physics.wipac.deco.service.DecoCameraService@1cadb55 with null: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3356)
+	at android.app.ActivityThread.access$2200(ActivityThread.java:179)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1560)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:145)
+	at android.app.ActivityThread.main(ActivityThread.java:5974)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at java.lang.reflect.Method.invoke(Method.java:372)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1388)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1183)
+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at edu.wisc.physics.wipac.deco.service.DecoCameraService.onStartCommand(DecoCameraService.java:60)
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3339)
+	... 9 more
+2015-04-30 14:50:42.264 I/DecoApp: Application started
+2015-04-30 14:50:42.267 D/DecoCameraService: onCreate
+2015-04-30 14:50:42.272 E/DecoCameraService: FATAL ERROR: Uncaught exception!
+java.lang.RuntimeException: Unable to start service edu.wisc.physics.wipac.deco.service.DecoCameraService@1cadb55 with null: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3356)
+	at android.app.ActivityThread.access$2200(ActivityThread.java:179)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1560)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:145)
+	at android.app.ActivityThread.main(ActivityThread.java:5974)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at java.lang.reflect.Method.invoke(Method.java:372)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1388)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1183)
+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at edu.wisc.physics.wipac.deco.service.DecoCameraService.onStartCommand(DecoCameraService.java:60)
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3339)
+	... 9 more
+2015-04-30 14:55:50.215 I/DecoApp: Application started
+2015-04-30 14:55:50.219 D/DecoCameraService: onCreate
+2015-04-30 14:55:50.224 E/DecoCameraService: FATAL ERROR: Uncaught exception!
+java.lang.RuntimeException: Unable to start service edu.wisc.physics.wipac.deco.service.DecoCameraService@1cadb55 with null: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3356)
+	at android.app.ActivityThread.access$2200(ActivityThread.java:179)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1560)
+	at android.os.Handler.dispatchMessage(Handler.java:102)
+	at android.os.Looper.loop(Looper.java:145)
+	at android.app.ActivityThread.main(ActivityThread.java:5974)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at java.lang.reflect.Method.invoke(Method.java:372)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1388)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1183)
+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.content.Intent.toString()' on a null object reference
+	at edu.wisc.physics.wipac.deco.service.DecoCameraService.onStartCommand(DecoCameraService.java:60)
+	at android.app.ActivityThread.handleServiceArgs(ActivityThread.java:3339)
+	... 9 more

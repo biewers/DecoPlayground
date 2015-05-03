@@ -6,25 +6,19 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Binder;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
+import android.os.PowerManager;
 
 public class DecoCameraService extends Service
 {
     private static final String TAG = "DecoCameraService";
     private static final int FOREGROUND_ID = 1966;
 
-    private Messenger mServiceMessenger;
-    private Messenger mActivityMessenger;
-
-    private Notification.Builder mNotificationBuilder;
     private Camera mCamera;
     private Handler mServiceHandler;
+    private PowerManager.WakeLock mWakeLock;
 
     @Override
     public void onCreate()
@@ -48,9 +42,11 @@ public class DecoCameraService extends Service
         thread.start();
         mServiceHandler = new Handler(thread.getLooper());
 
-        mServiceMessenger = new Messenger(new IncomingHandler());
-
         startForeground(FOREGROUND_ID, buildForegroundNotification());
+
+        PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
+        mWakeLock.acquire();
     }
 
     @Override
@@ -58,27 +54,30 @@ public class DecoCameraService extends Service
     {
         Logger.d(TAG, "onDestroy");
 
+        mWakeLock.release();
+        mWakeLock = null;
+
+        stopForeground(true);
+
         if (mCamera != null)
         {
             mCamera.closeCameraDevice();
             mCamera = null;
         }
 
-        stopForeground(true);
-
         Logger.close();
+    }
+
+    @Override
+    public IBinder onBind(Intent intent)
+    {
+        return null;
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId)
     {
         Logger.d(TAG, "onStartCommand intent " + intent + " flags " + flags + " startId " + startId);
-
-        if (intent != null)
-        {
-            mActivityMessenger = intent.getParcelableExtra("Messenger");
-            Logger.d(TAG, "mActivityMessenger " + mActivityMessenger);
-        }
 
         if (mCamera == null)
         {
@@ -109,37 +108,13 @@ public class DecoCameraService extends Service
                     @Override
                     public void onImageCaptured(ImageInfo imageInfo)
                     {
-                        Message msg = Message.obtain();
-                        msg.getData().putParcelable("imageInfo", imageInfo);
-                        try
-                        {
-                            if (mActivityMessenger != null)
-                            {
-                                mActivityMessenger.send(msg);
-                            }
-                        }
-                        catch (RemoteException e)
-                        {
-                            Logger.e(TAG, "Failed to send image captured message to main activity", e);
-                        }
+                        // TODO Send a message to the app activity
                     }
 
                     @Override
                     public void onCaptureCompleted(Long actualExposure)
                     {
-                        Message msg = Message.obtain();
-                        msg.getData().putParcelable("imageInfo", new ImageInfo(null, null, actualExposure));
-                        try
-                        {
-                            if (mActivityMessenger != null)
-                            {
-                                mActivityMessenger.send(msg);
-                            }
-                        }
-                        catch (RemoteException e)
-                        {
-                            Logger.e(TAG, "Failed to send capture completed message to main activity", e);
-                        }
+                        // TODO Send a message to the app activity
                     }
                 }
             );
@@ -155,9 +130,9 @@ public class DecoCameraService extends Service
         notificationIntent.setAction(getString(R.string.service_main_action));
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
-        mNotificationBuilder = new Notification.Builder(this);
+        Notification.Builder notificationBuilder = new Notification.Builder(this);
 
-        return mNotificationBuilder
+        return notificationBuilder
             .setOngoing(true)
             .setContentTitle("DECO")
             .setContentText("Capturing images")
@@ -165,44 +140,6 @@ public class DecoCameraService extends Service
             .setTicker("DECO")
             .setContentIntent(pendingIntent)
             .build();
-    }
-
-    @Override
-    public IBinder onBind(Intent intent)
-    {
-        Logger.d(TAG, "onBind intent " + intent);
-
-        if (intent != null)
-        {
-            mActivityMessenger = intent.getParcelableExtra("Messenger");
-            Logger.d(TAG, "mActivityMessenger " + mActivityMessenger);
-        }
-
-        return mServiceMessenger.getBinder();
-    }
-
-    @Override
-    public boolean onUnbind(Intent intent)
-    {
-        Logger.d(TAG, "onUnbind intent " + intent);
-        mActivityMessenger = null;
-        return true;
-    }
-
-    @Override
-    public void onRebind(Intent intent)
-    {
-        Logger.d(TAG, "onRebind intent " + intent);
-
-        if (intent != null)
-        {
-            mActivityMessenger = intent.getParcelableExtra("Messenger");
-            Logger.d(TAG, "mActivityMessenger " + mActivityMessenger);
-        }
-    }
-
-    private class IncomingHandler extends Handler
-    {
     }
 
     public static boolean isRunning(Context context)

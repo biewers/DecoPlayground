@@ -19,7 +19,7 @@ public class Logger
 
     private static PrintWriter log;
     private static SimpleDateFormat TIMESTAMP = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    private static final LogLevel LOG_LEVEL_MAX = LogLevel.DEBUG;
+    private static final LogLevel LOG_LEVEL_MAX = LogLevel.INFO;
 
     public enum LogLevel
     {

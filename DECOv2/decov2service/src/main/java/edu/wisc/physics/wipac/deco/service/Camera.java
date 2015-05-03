@@ -16,6 +16,7 @@ import android.media.Image;
 import android.media.ImageReader;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.util.Size;
 import android.view.Surface;
 
@@ -27,6 +28,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class Camera
 {
@@ -38,9 +40,13 @@ public class Camera
     private Context mContext;
     private Handler mHandler;
 
+    private HandlerThread mCaptureThread;
+    private Handler mCaptureHandler;
+
     private AtomicBoolean mCameraReady = new AtomicBoolean();
     private CameraDevice mCameraDevice;
     private CameraCaptureSession mCameraCaptureSession;
+    private CameraCaptureSession.CaptureCallback mStillCaptureCallback;
     private CameraCaptureStateCallback mCameraCaptureStateCallback;
 
     // Still capture related fields
@@ -49,6 +55,8 @@ public class Camera
     private ImageReader mStillReader;
     private Size mStillSize = new Size(640, 480); // default
     private CaptureRequest mStillCaptureRequest;
+
+    private AtomicLong mNumSavedImages = new AtomicLong();
 
     public Camera(Context context, Handler handler)
     {
@@ -243,7 +251,7 @@ public class Camera
             captureRequestBuilder.addTarget(mStillReader.getSurface());
             mStillCaptureRequest = captureRequestBuilder.build();
 
-            final CameraCaptureSession.CaptureCallback stillCaptureCallback =
+            mStillCaptureCallback =
                     new CameraCaptureSession.CaptureCallback()
                     {
                         @Override
@@ -261,10 +269,18 @@ public class Camera
             ImageReader.OnImageAvailableListener readerListener =
                     new ImageReader.OnImageAvailableListener()
                     {
+                        private AtomicLong mNumImages = new AtomicLong();
+
                         @Override
                         public void onImageAvailable(ImageReader reader)
                         {
-                            Logger.d(TAG, "Still capture image available");
+                            captureImage();
+
+                            long imageNum = mNumImages.addAndGet(1);
+                            Logger.d(TAG, "Still capture image " + imageNum + " available");
+
+                            long start = System.currentTimeMillis();
+
                             Image image = reader.acquireLatestImage();
 
                             // TODO Save for now
@@ -275,51 +291,41 @@ public class Camera
 
                             // You need to close the image or you will exceed READER_MAX_IMAGES
                             image.close();
-                            Logger.d(TAG, "Acquired image");
+                            long total = (System.currentTimeMillis() - start);
+
+                            Logger.d(TAG, "Acquired image " + imageNum + " in " + total + "ms");
                         }
                     };
 
             mStillReader.setOnImageAvailableListener(readerListener, mHandler);
 
-            // Now, setup a simple thread to grab an image occasionally
-            new AppThread(
-                    new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            while (true)
-                            {
-                                try
-                                {
-                                    if (mCameraReady.get())
-                                    {
-                                        Logger.d(TAG, "Initiating still capture");
-                                        int captureId = mCameraCaptureSession.capture(mStillCaptureRequest, stillCaptureCallback, mHandler);
-                                        Logger.d(TAG, "Capture ID " + captureId);
-                                    }
-                                }
-                                catch (Exception e)
-                                {
-                                    Logger.e(TAG, "Failed to capture image", e);
-                                    break;
-                                }
+            mCaptureThread = new HandlerThread("Image Capture Thread");
+            mCaptureThread.start();
+            mCaptureHandler = new Handler(mCaptureThread.getLooper());
 
-                                try
-                                {
-                                    Thread.sleep(STILL_CAPTURE_PAUSE);
-                                }
-                                catch (Exception e)
-                                {
-                                }
-                            }
-                        }
-                    }).start();
+            captureImage();
         }
         catch (Exception e)
         {
             // TODO makeToast("Unable to create camera capture request");
             Logger.e(TAG, "Unable to create camera capture request", e);
+        }
+    }
+
+    private void captureImage()
+    {
+        try
+        {
+            if (mCameraReady.get())
+            {
+                Logger.d(TAG, "Initiating still capture");
+                int captureId = mCameraCaptureSession.capture(mStillCaptureRequest, mStillCaptureCallback, mCaptureHandler);
+                Logger.d(TAG, "Capture ID " + captureId);
+            }
+        }
+        catch (Exception e)
+        {
+            Logger.e(TAG, "Failed to capture image", e);
         }
     }
 
@@ -383,6 +389,8 @@ public class Camera
             FileOutputStream output = new FileOutputStream(file);
             output.write(imageBytes);
             output.close();
+
+            Logger.d(TAG, "Saved image");
 
             if (mCameraCaptureStateCallback != null)
             {

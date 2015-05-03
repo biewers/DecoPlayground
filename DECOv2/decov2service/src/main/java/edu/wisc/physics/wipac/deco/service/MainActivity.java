@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import android.os.Messenger;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,9 +27,6 @@ public class MainActivity extends Activity
 
     private boolean mServiceStarted = false;
     private Button mBtnToggleService;
-
-    private Messenger mActivityMessenger;
-    private DecoServiceConnection mServiceConnection = new DecoServiceConnection();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -52,8 +48,6 @@ public class MainActivity extends Activity
         );
 
         initializeControls();
-
-        mActivityMessenger = new Messenger(new IncomingHandler());
     }
 
     private void initializeControls()
@@ -85,10 +79,7 @@ public class MainActivity extends Activity
     {
         if (!mServiceStarted)
         {
-            Logger.d(TAG, "mActivityMessenger " + mActivityMessenger);
-
             Intent intent = new Intent(this, DecoCameraService.class);
-            intent.putExtra("Messenger", mActivityMessenger);
             startService(intent);
             mBtnToggleService.setText("Stop Service");
             mServiceStarted = true;
@@ -107,10 +98,6 @@ public class MainActivity extends Activity
     {
         Logger.d(TAG, "onResume");
         super.onResume();
-        Logger.d(TAG, "mActivityMessenger " + mActivityMessenger);
-        Intent intent = new Intent(MainActivity.this, DecoCameraService.class);
-        intent.putExtra("Messenger", mActivityMessenger);
-        bindService(intent, mServiceConnection, 0);
     }
 
     @Override
@@ -118,7 +105,6 @@ public class MainActivity extends Activity
     {
         Logger.d(TAG, "onPause");
         super.onPause();
-        unbindService(mServiceConnection);
     }
 
     @Override

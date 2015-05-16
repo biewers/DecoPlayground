@@ -12,8 +12,13 @@ import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.CaptureResult;
 import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.media.Image;
 import android.media.ImageReader;
+import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -56,6 +61,11 @@ public class Camera
     private Size mStillSize = new Size(640, 480); // default
     private CaptureRequest mStillCaptureRequest;
 
+    // Location information
+    private static final long MIN_TIME_LOCATION_UPDATES      = 5 * 60 * 1000;  // 5mins
+    private static final float MIN_DISTANCE_LOCATION_UPDATES = 10;  // meters
+    private Location mLocation;
+
     private AtomicLong mNumSavedImages = new AtomicLong();
 
     public Camera(Context context, Handler handler)
@@ -93,6 +103,66 @@ public class Camera
                 }
             };
 
+    private LocationListener locationListener =
+            new LocationListener()
+            {
+                @Override
+                public void onLocationChanged(Location location)
+                {
+                    Logger.d(TAG, "Location changed " + location);
+                    try
+                    {
+                        mCameraReady.set(Camera.this.mLocation != null);
+                        Camera.this.mLocation = location;
+                        CaptureRequest.Builder captureRequestBuilder = Camera.this.getStillCaptureRequestBuilder();
+                        mStillCaptureRequest = captureRequestBuilder.build();
+                        mCameraReady.set(true);
+                    }
+                    catch (Exception e)
+                    {
+                        Logger.e(TAG, "Failed to update capture request with new location", e);
+                    }
+                }
+
+                @Override
+                public void onStatusChanged(String provider, int status, Bundle extras)
+                {
+                    Logger.d(TAG, "Location status changed " + provider + " " + status + " " + extras);
+                }
+
+                @Override
+                public void onProviderEnabled(String provider)
+                {
+                    Logger.d(TAG, "Location provider enabled " + provider);
+                }
+
+                @Override
+                public void onProviderDisabled(String provider)
+                {
+                    Logger.d(TAG, "Location provider disabled " + provider);
+                }
+            };
+
+    private void setupLocationListener()
+    {
+        LocationManager locationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+        criteria.setAccuracy (Criteria.ACCURACY_FINE);
+        criteria.setPowerRequirement (Criteria.NO_REQUIREMENT);
+        String locationProvider = locationManager.getBestProvider(criteria, true);
+
+        Logger.d(TAG, "Location provider " + locationProvider);
+        if (locationProvider != null)
+        {
+            locationManager.requestLocationUpdates(locationProvider, MIN_TIME_LOCATION_UPDATES, MIN_DISTANCE_LOCATION_UPDATES, locationListener);
+            Location lastLocation = locationManager.getLastKnownLocation(locationProvider);
+            if (lastLocation != null)
+            {
+                locationListener.onLocationChanged(lastLocation);
+            }
+        }
+    }
+
     /**
      * Locates a back facing camera and attempts to open it. Once the camera is open successfully,
      * the {@link #onCameraDeviceOpen(android.hardware.camera2.CameraDevice)} method is invoked.
@@ -107,35 +177,48 @@ public class Camera
 
         Logger.i(TAG, "Opening camera");
 
+        // Get this going right away since it can take GPS a while
+        setupLocationListener();
+
         try
         {
-            CameraManager cameraManager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
-
-            String[] cameraIds = cameraManager.getCameraIdList();
-            if (cameraIds == null)
+            String cameraId = getCameraId(mContext);
+            if (cameraId == null)
             {
-                // TODO makeToast("No cameras found");
                 Logger.w(TAG, "No cameras found");
-                return;
             }
-
-            for (String cameraId : cameraIds)
+            else
             {
-                CameraCharacteristics cameraCharacteristics = cameraManager.getCameraCharacteristics(cameraId);
-                if (cameraCharacteristics.get(CameraCharacteristics.LENS_FACING) == CameraCharacteristics.LENS_FACING_BACK)
-                {
-                    cameraManager.openCamera(cameraId, mCameraStateCallback, mHandler);
-                    return;
-                }
+                CameraManager cameraManager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
+                cameraManager.openCamera(cameraId, mCameraStateCallback, mHandler);
             }
-
-            // TODO makeToast("No back facing camera");
         }
         catch (Exception e)
         {
-            // TODO makeToast("Failed to open camera");
             Logger.e(TAG, "Failed to open camera", e);
         }
+    }
+
+    public static String getCameraId(Context context) throws CameraAccessException
+    {
+        CameraManager cameraManager = (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
+
+        String[] cameraIds = cameraManager.getCameraIdList();
+        if (cameraIds == null)
+        {
+            return null;
+        }
+
+        for (String cameraId : cameraIds)
+        {
+            CameraCharacteristics cameraCharacteristics = cameraManager.getCameraCharacteristics(cameraId);
+            if (cameraCharacteristics.get(CameraCharacteristics.LENS_FACING) == CameraCharacteristics.LENS_FACING_BACK)
+            {
+                return cameraId;
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -248,7 +331,6 @@ public class Camera
 
             // Setup still capture
             CaptureRequest.Builder captureRequestBuilder = getStillCaptureRequestBuilder();
-            captureRequestBuilder.addTarget(mStillReader.getSurface());
             mStillCaptureRequest = captureRequestBuilder.build();
 
             mStillCaptureCallback =
@@ -366,6 +448,13 @@ public class Camera
         captureRequestBuilder.set(CaptureRequest.NOISE_REDUCTION_MODE, CaptureRequest.NOISE_REDUCTION_MODE_OFF);
         captureRequestBuilder.set(CaptureRequest.BLACK_LEVEL_LOCK, false);// without it unlocked it might cause issues
         captureRequestBuilder.set(CaptureRequest.SENSOR_SENSITIVITY, characteristics.get(CameraCharacteristics.SENSOR_MAX_ANALOG_SENSITIVITY));
+
+        if (mLocation != null)
+        {
+            captureRequestBuilder.set(CaptureRequest.JPEG_GPS_LOCATION, mLocation);
+        }
+
+        captureRequestBuilder.addTarget(mStillReader.getSurface());
 
         return captureRequestBuilder;
     }

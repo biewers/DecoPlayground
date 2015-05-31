@@ -73,6 +73,10 @@ public class MainActivity extends Activity
             mBtnToggleService.setText("Stop Service");
             mServiceStarted = true;
         }
+        else
+        {
+            startStopService();
+        }
     }
 
     private void startStopService()

@@ -22,6 +22,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.telephony.TelephonyManager;
+import android.util.Range;
 import android.util.Size;
 import android.view.Surface;
 
@@ -32,6 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -441,13 +444,36 @@ public class Camera
         captureRequestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CameraCharacteristics.CONTROL_AE_MODE_OFF);
         if (exposure != null)
         {
+            Logger.i(TAG, "Setting exposure time to " + exposure);
             captureRequestBuilder.set(CaptureRequest.SENSOR_EXPOSURE_TIME, exposure);
         }
+
+        Range<Integer> iso_range = characteristics.get(CameraCharacteristics.SENSOR_INFO_SENSITIVITY_RANGE);
+        if (iso_range != null)
+        {
+            Logger.i(TAG, "Setting ISO to " + iso_range.getUpper());
+            captureRequestBuilder.set(CaptureRequest.SENSOR_SENSITIVITY, iso_range.getUpper());
+        }
+        else
+        {
+            Logger.i(TAG, "Sensor info sensitivity range is not defined for this device");
+            Integer maxAnalogSensitivity = characteristics.get(CameraCharacteristics.SENSOR_MAX_ANALOG_SENSITIVITY);
+            if (maxAnalogSensitivity != null)
+            {
+                Logger.i(TAG, "Setting ISO to " + maxAnalogSensitivity);
+                captureRequestBuilder.set(CaptureRequest.SENSOR_SENSITIVITY, maxAnalogSensitivity);
+            }
+            else
+            {
+                Logger.i(TAG, "Sensor max sensitivity is not defined for this device");
+            }
+        }
+
         captureRequestBuilder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_AUTO);
         captureRequestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
         captureRequestBuilder.set(CaptureRequest.NOISE_REDUCTION_MODE, CaptureRequest.NOISE_REDUCTION_MODE_OFF);
         captureRequestBuilder.set(CaptureRequest.BLACK_LEVEL_LOCK, false);// without it unlocked it might cause issues
-        captureRequestBuilder.set(CaptureRequest.SENSOR_SENSITIVITY, characteristics.get(CameraCharacteristics.SENSOR_MAX_ANALOG_SENSITIVITY));
+        captureRequestBuilder.set(CaptureRequest.JPEG_QUALITY, Byte.valueOf((byte) 100));
 
         if (mLocation != null)
         {
@@ -466,11 +492,20 @@ public class Camera
         {
             Date now = new Date();
 
+            final String tmDevice, tmSerial, androidId;
+            final TelephonyManager tm = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+            tmDevice = "" + tm.getDeviceId();
+            tmSerial = "" + tm.getSimSerialNumber();
+            androidId = "" + android.provider.Settings.Secure.getString(mContext.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
+
+            UUID deviceUuid = new UUID(androidId.hashCode(), ((long)tmDevice.hashCode() << 32) | tmSerial.hashCode());
+            String deviceId = deviceUuid.toString();
+
             File dir = new File(Environment.getExternalStorageDirectory(), mContext.getResources().getString(R.string.app_name));
-            dir = new File(dir, IMAGE_DIR_FORMAT.format(now));
+            dir = new File(dir, IMAGE_DIR_FORMAT.format(now)+"_"+deviceId);
             dir.mkdirs();
 
-            String imageName = IMAGE_FILE_FORMAT.format(now) + ".jpg";
+            String imageName = deviceId+"_"+IMAGE_FILE_FORMAT.format(now) + ".jpg";
 
             File file = new File(dir, imageName);
             Logger.d(TAG, "Image " + file.getAbsolutePath());

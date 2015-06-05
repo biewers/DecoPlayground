@@ -75,7 +75,7 @@ public class MainActivity extends Activity
         }
         else
         {
-            startStopService();
+//            startStopService();
         }
     }
 

@@ -11,6 +11,8 @@ import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.PowerManager;
 
+import java.io.IOException;
+
 public class DecoCameraService extends Service
 {
     private static final String TAG = "DecoCameraService";
@@ -81,7 +83,16 @@ public class DecoCameraService extends Service
 
         if (mCamera == null)
         {
-            mCamera = new Camera(this, mServiceHandler);
+            try
+            {
+                mCamera = new Camera(this, mServiceHandler);
+            }
+            catch (IOException e)
+            {
+                Logger.e(TAG, "Failed to initialized camera", e);
+                return START_STICKY;
+            }
+
             mCamera.setCameraCaptureStateCallback(
                 new CameraCaptureStateCallback()
                 {

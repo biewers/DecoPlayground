@@ -28,12 +28,16 @@ import android.util.Size;
 import android.view.Surface;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
@@ -42,17 +46,20 @@ public class Camera
 {
     private static final String TAG = "Camera";
 
+    private static final String CAPTURE_BUILDER_PROP_FILE = "camera-settings.properties";
     private static final SimpleDateFormat IMAGE_DIR_FORMAT = new SimpleDateFormat("yyyyMMdd_HH");
     private static final SimpleDateFormat IMAGE_FILE_FORMAT = new SimpleDateFormat("yyyyMMdd_HHmmss.SSS");
 
     private Context mContext;
     private Handler mHandler;
+    private Properties mCaptureBuilderProperties;
 
     private HandlerThread mCaptureThread;
     private Handler mCaptureHandler;
 
     private AtomicBoolean mCameraReady = new AtomicBoolean();
     private CameraDevice mCameraDevice;
+    private DecoCameraCharacteristics mDecoCameraCharacteristics;
     private CameraCaptureSession mCameraCaptureSession;
     private CameraCaptureSession.CaptureCallback mStillCaptureCallback;
     private CameraCaptureStateCallback mCameraCaptureStateCallback;
@@ -71,10 +78,21 @@ public class Camera
 
     private AtomicLong mNumSavedImages = new AtomicLong();
 
-    public Camera(Context context, Handler handler)
+    public Camera(Context context, Handler handler) throws IOException
     {
         this.mContext = context;
         this.mHandler = handler;
+        mCaptureBuilderProperties = new Properties();
+        try
+        {
+            File dir = new File(Environment.getExternalStorageDirectory(), mContext.getResources().getString(R.string.app_name));
+            mCaptureBuilderProperties.load(new FileInputStream(new File(dir, CAPTURE_BUILDER_PROP_FILE)));
+        }
+        catch (IOException e)
+        {
+            Logger.e(TAG, "Failed to load " + CAPTURE_BUILDER_PROP_FILE + " file", e);
+            throw e;
+        }
     }
 
     public void setCameraCaptureStateCallback(CameraCaptureStateCallback cameraCaptureStateCallback)
@@ -115,11 +133,14 @@ public class Camera
                     Logger.d(TAG, "Location changed " + location);
                     try
                     {
-                        mCameraReady.set(Camera.this.mLocation != null);
-                        Camera.this.mLocation = location;
-                        CaptureRequest.Builder captureRequestBuilder = Camera.this.getStillCaptureRequestBuilder();
-                        mStillCaptureRequest = captureRequestBuilder.build();
-                        mCameraReady.set(true);
+                        if (mCameraReady.get())
+                        {
+                            mCameraReady.set(Camera.this.mLocation != null);
+                            Camera.this.mLocation = location;
+                            CaptureRequest.Builder captureRequestBuilder = Camera.this.getStillCaptureRequestBuilder();
+                            mStillCaptureRequest = captureRequestBuilder.build();
+                            mCameraReady.set(true);
+                        }
                     }
                     catch (Exception e)
                     {
@@ -234,6 +255,15 @@ public class Camera
         Logger.d(TAG, "onCameraDeviceOpen - thread " + Thread.currentThread().getName() + "(" + Thread.currentThread().getId() + ")");
         mCameraDevice = cameraDevice;
 
+        try
+        {
+            mDecoCameraCharacteristics = new DecoCameraCharacteristics(mContext, mCameraDevice.getId());
+        }
+        catch (CameraAccessException e)
+        {
+            Logger.e(TAG, "Failed to create camera characteristics", e);
+        }
+
         if (determineCameraOutputSize())
         {
             mCameraReady.set(true);
@@ -331,7 +361,6 @@ public class Camera
 
         try
         {
-
             // Setup still capture
             CaptureRequest.Builder captureRequestBuilder = getStillCaptureRequestBuilder();
             mStillCaptureRequest = captureRequestBuilder.build();
@@ -418,7 +447,10 @@ public class Camera
     {
         CameraManager manager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
         CameraCharacteristics characteristics = manager.getCameraCharacteristics(mCameraDevice.getId());
+        CaptureRequest.Builder captureRequestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
+        mDecoCameraCharacteristics.setupCaptureRequest(mCaptureBuilderProperties, captureRequestBuilder);
 
+        /*
         Long exposure = null;
         int supportedHardwareLevel = characteristics.get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL);
         if (supportedHardwareLevel == CameraMetadata.INFO_SUPPORTED_HARDWARE_LEVEL_FULL)
@@ -440,7 +472,6 @@ public class Camera
             }
         }
 
-        CaptureRequest.Builder captureRequestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
         captureRequestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CameraCharacteristics.CONTROL_AE_MODE_OFF);
         if (exposure != null)
         {
@@ -474,6 +505,7 @@ public class Camera
         captureRequestBuilder.set(CaptureRequest.NOISE_REDUCTION_MODE, CaptureRequest.NOISE_REDUCTION_MODE_OFF);
         captureRequestBuilder.set(CaptureRequest.BLACK_LEVEL_LOCK, false);// without it unlocked it might cause issues
         captureRequestBuilder.set(CaptureRequest.JPEG_QUALITY, Byte.valueOf((byte) 100));
+        */
 
         if (mLocation != null)
         {
